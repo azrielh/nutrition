@@ -1,6 +1,6 @@
 <%= simple_form_for @recipe , html: {class: "form-horizontal"} do |r| %>
     <%= r.input :title, placeholder: "Add recipe title", class: "form-control" %>
     <%= r.input :description, placeholder: "Write a recipe description", class: "form-control" %>
-    <%#= r.file_field :image, class: "form-control" %>
+    <%= r.input :image, class: "form-control" %>
     <%= r.submit "Save Recipe", class: "btn btn-primary" %>
 <% end %>
