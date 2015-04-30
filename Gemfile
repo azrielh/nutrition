@@ -38,6 +38,7 @@ gem "rails_12factor", group: :production
 
 gem "bootstrap-sass"
 
+gem 'vider', github: 'wazery/vider'
 gem 'carrierwave'
 gem "mini_magick"
 gem "fog"

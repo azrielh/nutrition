@@ -1,4 +1,5 @@
 GIT
+
   remote: git@github.com:jeffumich/usda-nutrient-database.git
   revision: 7276e3baf5ca90c949da8b59d7e6c53ddef99876
   specs:
@@ -6,6 +7,13 @@ GIT
       activerecord (>= 3.0.0)
       faraday
       rubyzip
+
+  remote: git://github.com/wazery/vider.git
+  revision: 9647256685a0ee0f4712267e0ce715207a99e972
+  specs:
+    vider (0.0.1)
+      rails (>= 4.1.6)
+
 
 GEM
   remote: https://rubygems.org/
@@ -324,5 +332,9 @@ DEPENDENCIES
   spring
   turbolinks
   uglifier (>= 1.3.0)
+<<<<<<< HEAD
   usda-nutrient-database!
+=======
+  vider!
+>>>>>>> master
   web-console (~> 2.0)
