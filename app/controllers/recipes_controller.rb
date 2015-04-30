@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
 
+  before_action :authenticate_user!
   before_action :find_recipe, only: [:show, :edit, :update, :destroy]
 
 
