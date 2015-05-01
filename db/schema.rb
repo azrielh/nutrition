@@ -11,10 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150430015608) do
+ActiveRecord::Schema.define(version: 20150501005754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "inclusions", force: :cascade do |t|
+    t.integer  "recipe_id"
+    t.integer  "ingredient_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "inclusions", ["ingredient_id"], name: "index_inclusions_on_ingredient_id", using: :btree
+  add_index "inclusions", ["recipe_id"], name: "index_inclusions_on_recipe_id", using: :btree
+
+  create_table "ingredients", force: :cascade do |t|
+    t.integer  "nutrient_databank_number"
+    t.string   "name"
+    t.string   "unit"
+    t.float    "qty"
+    t.float    "calories"
+    t.float    "total_fat"
+    t.float    "saturated_fat"
+    t.float    "trans_fat"
+    t.float    "cholesterol"
+    t.float    "sodium"
+    t.float    "total_carbs"
+    t.float    "dietary_fiber"
+    t.float    "sugars"
+    t.float    "protein"
+    t.float    "vitamin_a"
+    t.float    "vitamin_c"
+    t.float    "calcium"
+    t.float    "iron"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "recipes", force: :cascade do |t|
     t.string   "title"
@@ -140,4 +173,6 @@ ActiveRecord::Schema.define(version: 20150430015608) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "inclusions", "ingredients"
+  add_foreign_key "inclusions", "recipes"
 end

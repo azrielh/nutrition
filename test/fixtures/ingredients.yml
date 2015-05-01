@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nutrient_databank_number: 1
+  name: MyString
+  unit: MyString
+  qty: 1.5
+  calories: 1.5
+  total_fat: 1.5
+  saturated_fat: 1.5
+  trans_fat: 1.5
+  cholesterol: 1.5
+  sodium: 1.5
+  total_carbs: 1.5
+  dietary_fiber: 1.5
+  sugars: 1.5
+  protein: 1.5
+  vitamin_a: 1.5
+  vitamin_c: 1.5
+  calcium: 1.5
+  iron: 1.5
+
+two:
+  nutrient_databank_number: 1
+  name: MyString
+  unit: MyString
+  qty: 1.5
+  calories: 1.5
+  total_fat: 1.5
+  saturated_fat: 1.5
+  trans_fat: 1.5
+  cholesterol: 1.5
+  sodium: 1.5
+  total_carbs: 1.5
+  dietary_fiber: 1.5
+  sugars: 1.5
+  protein: 1.5
+  vitamin_a: 1.5
+  vitamin_c: 1.5
+  calcium: 1.5
+  iron: 1.5

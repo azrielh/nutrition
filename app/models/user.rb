@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true, email: true
   validates :first_name, presence: true
 
+  has_many :recipes
+
   def full_name
     "#{first_name} #{last_name}".strip
   end
