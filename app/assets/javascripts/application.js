@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.vide
 //= require cocoon
 //= require bootstrap
 //= require turbolinks

@@ -8,7 +8,7 @@ class Recipe < ActiveRecord::Base
 
   has_one :direction
 
-  has_many :inclusions, dependent: :destory
+  has_many :inclusions, dependent: :destroy
   has_many :recipe_ingredients, through: :inclusions, source: :ingredient
 
   has_many :categorizations, dependent: :destroy
