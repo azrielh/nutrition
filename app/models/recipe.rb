@@ -6,6 +6,8 @@ class Recipe < ActiveRecord::Base
 
   belongs_to :user
 
+  has_one :direction
+
   has_many :inclusions, dependent: :destory
   has_many :recipe_ingredients, through: :inclusions, source: :ingredient
 

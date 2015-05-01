@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150501011714) do
+ActiveRecord::Schema.define(version: 20150501015151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 20150501011714) do
 
   add_index "categorizations", ["category_id"], name: "index_categorizations_on_category_id", using: :btree
   add_index "categorizations", ["recipe_id"], name: "index_categorizations_on_recipe_id", using: :btree
+
+  create_table "directions", force: :cascade do |t|
+    t.integer  "step"
+    t.text     "instruction"
+    t.integer  "recipe_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "directions", ["recipe_id"], name: "index_directions_on_recipe_id", using: :btree
 
   create_table "inclusions", force: :cascade do |t|
     t.integer  "recipe_id"
@@ -68,9 +78,23 @@ ActiveRecord::Schema.define(version: 20150501011714) do
   create_table "recipes", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "image"
+    t.float    "calories"
+    t.float    "total_fat"
+    t.float    "saturated_fat"
+    t.float    "trans_fat"
+    t.float    "cholesterol"
+    t.float    "sodium"
+    t.float    "total_carbs"
+    t.float    "dietary_fiber"
+    t.float    "sugars"
+    t.float    "protein"
+    t.float    "vitamin_a"
+    t.float    "vitamin_c"
+    t.float    "calcium"
+    t.float    "iron"
   end
 
   create_table "usda_food_groups", id: false, force: :cascade do |t|
@@ -191,6 +215,7 @@ ActiveRecord::Schema.define(version: 20150501011714) do
 
   add_foreign_key "categorizations", "categories"
   add_foreign_key "categorizations", "recipes"
+  add_foreign_key "directions", "recipes"
   add_foreign_key "inclusions", "ingredients"
   add_foreign_key "inclusions", "recipes"
 end
