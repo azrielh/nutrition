@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150501005754) do
+ActiveRecord::Schema.define(version: 20150501011714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categorizations", force: :cascade do |t|
+    t.integer  "recipe_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "categorizations", ["category_id"], name: "index_categorizations_on_category_id", using: :btree
+  add_index "categorizations", ["recipe_id"], name: "index_categorizations_on_recipe_id", using: :btree
 
   create_table "inclusions", force: :cascade do |t|
     t.integer  "recipe_id"
@@ -173,6 +189,8 @@ ActiveRecord::Schema.define(version: 20150501005754) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "categorizations", "categories"
+  add_foreign_key "categorizations", "recipes"
   add_foreign_key "inclusions", "ingredients"
   add_foreign_key "inclusions", "recipes"
 end

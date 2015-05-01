@@ -9,6 +9,9 @@ class Recipe < ActiveRecord::Base
   has_many :inclusions, dependent: :destory
   has_many :recipe_ingredients, through: :inclusions, source: :ingredient
 
+  has_many :categorizations, dependent: :destroy
+  has_many :categories, through: :categorizations
+
   mount_uploader :image, ImageUploader
 
   # after_initialize :set_defaults
