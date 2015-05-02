@@ -11,8 +11,9 @@ class Recipe < ActiveRecord::Base
   has_many :inclusions, dependent: :destroy
   has_many :recipe_ingredients, through: :inclusions, source: :ingredient
 
-  has_many :categorizations, dependent: :destroy
-  has_many :categories, through: :categorizations
+  #has_many :categorizations, dependent: :destroy
+  #has_many :categories, through: :categorizations
+  belongs_to :category
 
   mount_uploader :image, ImageUploader
 

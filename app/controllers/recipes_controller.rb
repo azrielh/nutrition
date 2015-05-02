@@ -3,9 +3,16 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_recipe, only: [:show, :edit, :update, :destroy]
 
-
   def index
     @recipes = Recipe.all
+    #use first otherwise it will return a record.
+    @appetizers = Category.where(name: 'Appetizer').first.recipes
+    @entrees = Category.where(name: 'Entree').first.recipes
+    @desserts = Category.where(name: 'Dessert').first.recipes
+    @sides = Category.where(name: 'Sides').first.recipes
+    @bulk_recipes = Category.where(name: 'Bulk Recipe').first.recipes
+    @inactive = Category.where(name: 'InActive').first.recipes
+
   end
 
   def new
@@ -13,7 +20,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new recipe_params
+    @recipe = current_user.recipes.new recipe_params
     if @recipe.save
       redirect_to recipe_path(@recipe), notice: "Successfully Created"
     else
@@ -48,7 +55,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:title, :description, :image)
+    params.require(:recipe).permit(:title, :description, :image, :category_id)
   end
 
 

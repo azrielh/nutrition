@@ -1,10 +1,7 @@
 <div class="container">
-  <h1>All Recipes</h1>
+  <h1>Restaurant Name</h1>
+  <h2>All Recipes</h2>
 
-  <% @recipes.each do |r| %>
-    <%= link_to recipe_path(r) do %>
-      <%#= image_tag r.image.url(:medium) %>
-    <% end %>
-    <h2><%= link_to r.title, recipe_path(r) %></h2>
-  <% end %>
+  <%= render '/recipes/show_recipes' %>
+
 </div>

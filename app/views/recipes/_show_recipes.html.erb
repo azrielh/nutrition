@@ -1,0 +1,54 @@
+<h2 class="section-header">Appetizer</h2>
+<div class="appetizers">
+  <% @appetizers.each do |r| %>
+    <%= link_to recipe_path(r) do %>
+      <%= image_tag r.image.url(:thumb) %>
+    <% end %>
+    <h2><%= link_to r.title, recipe_path(r) %></h2>
+  <% end %>
+</div>
+<h2 class="section-header">Entrée</h2>
+<div class="entrees">
+  <% @entrees.each do |r| %>
+    <%= link_to recipe_path(r) do %>
+      <%= image_tag r.image.url(:thumb) %>
+    <% end %>
+    <h2><%= link_to r.title, recipe_path(r) %></h2>
+  <% end %>
+</div>
+<h2 class="section-header">Dessert</h2>
+<div class="dessert">
+  <% @desserts.each do |r| %>
+    <%= link_to recipe_path(r) do %>
+      <%= image_tag r.image.url(:thumb) %>
+    <% end %>
+    <h2><%= link_to r.title, recipe_path(r) %></h2>
+  <% end %>
+</div>
+<h2 class="section-header">Sides</h2>
+<div class="sides">
+  <% @sides.each do |r| %>
+    <%= link_to recipe_path(r) do %>
+      <%= image_tag r.image.url(:thumb) %>
+    <% end %>
+    <h2><%= link_to r.title, recipe_path(r) %></h2>
+  <% end %>
+</div>
+<h2 class="section-header">Bulk Recipes</h2>
+<div class="bulk_recipes">
+  <% @bulk_recipes.each do |r| %>
+    <%= link_to recipe_path(r) do %>
+      <%= image_tag r.image.url(:thumb) %>
+    <% end %>
+    <h2><%= link_to r.title, recipe_path(r) %></h2>
+  <% end %>
+</div>
+<h2 class="section-header">Inactive</h2>
+<div class="inactive">
+  <% @inactive.each do |r| %>
+    <%= link_to recipe_path(r) do %>
+      <%= image_tag r.image.url(:thumb) %>
+    <% end %>
+    <h2><%= link_to r.title, recipe_path(r) %></h2>
+  <% end %>
+</div>

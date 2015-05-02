@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150501015151) do
+ActiveRecord::Schema.define(version: 20150502014043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,10 @@ ActiveRecord::Schema.define(version: 20150501015151) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "recipe_id"
   end
+
+  add_index "categories", ["recipe_id"], name: "index_categories_on_recipe_id", using: :btree
 
   create_table "categorizations", force: :cascade do |t|
     t.integer  "recipe_id"
@@ -95,7 +98,12 @@ ActiveRecord::Schema.define(version: 20150501015151) do
     t.float    "vitamin_c"
     t.float    "calcium"
     t.float    "iron"
+    t.integer  "user_id"
+    t.integer  "category_id"
   end
+
+  add_index "recipes", ["category_id"], name: "index_recipes_on_category_id", using: :btree
+  add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
 
   create_table "usda_food_groups", id: false, force: :cascade do |t|
     t.string   "code",        null: false
@@ -213,9 +221,12 @@ ActiveRecord::Schema.define(version: 20150501015151) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "categories", "recipes"
   add_foreign_key "categorizations", "categories"
   add_foreign_key "categorizations", "recipes"
   add_foreign_key "directions", "recipes"
   add_foreign_key "inclusions", "ingredients"
   add_foreign_key "inclusions", "recipes"
+  add_foreign_key "recipes", "categories"
+  add_foreign_key "recipes", "users"
 end

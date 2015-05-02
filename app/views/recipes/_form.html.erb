@@ -2,5 +2,6 @@
     <%= r.input :title, placeholder: "Add recipe title", class: "form-control" %>
     <%= r.input :description, placeholder: "Write a recipe description", class: "form-control" %>
     <%= r.input :image, class: "form-control" %>
+    <%= r.association :category, as: :radio_buttons %>
     <%= r.submit "Save Recipe", class: "btn btn-primary" %>
 <% end %>

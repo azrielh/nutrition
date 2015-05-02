@@ -1,9 +1,18 @@
-<h1>Landing Page</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nutrition</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<%= yield %>
 
 <%= link_to "Recipes", recipes_path %>
+<%= render "/layouts/navbar" %>
 
-<%#= vider_tag 'assets/videos/', position: '100% 100%' %>
-
-<div style="width: 100%; height: 100vh;"
-  data-vide-bg="<%= asset_path('videos/video.mp4') %>" data-vide-options="loop: true, muted: true, position: 0% 0%">
-</div>
+</body>
+</html>
