@@ -1,13 +1,82 @@
 <div class="container">
   <h1>Recipe</h1>
-
-  <%#= image_tag @recipe.image.url(:medium, class: "recipe_image") %>
+  <%= image_tag @recipe.image.url(:large) %>
   <h1><%= @recipe.title %></h1>
   <p><%= @recipe.description %></p>
-  <%= image_tag @recipe.image.url(:large) %>
-  <%= @appetizers %>
+
+  <div class="tag">
+    <%= @recipe.category.name %>
+  </div>
 
   <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-default" %>
-  <%= link_to "Delete", recipe_path(@recipe), method: :delete, data: {confirm: "are you sure?"}, class: "btn btn-default" %>
+  <i class="fa fa-trash"></i><%= link_to "Delete", recipe_path(@recipe), method: :delete, data: {confirm: "are you sure?"}, class: "btn btn-default" %>
   <%= link_to "Back", recipes_path, class: "btn btn-default" %>
+
+  <h1>add ingredients and directions on this page</h1>
+  <%#= @ingredient.each do |x| %>
+    <%#= x.long_description %>
+  <%# end %>
+
+  <% @food.each do |x| %>
+    <%= x.nutrient_number %>
+    <%= x.nutrient_value %>
+  <% end %>
+
+  <%= render 'form_search' %>
+
+
+
+<div class="col-md-6">
+  <h2>Ingredients</h2>
+  <%= @recipe.ingredients.each do |i| %>
+    <%= i.qty %>
+    <%= i.unit %>
+    <%= i.name %>
+  <% end %>
+</div>
+
+<div class="col-md-6">
+  <h2>Directions</h2>
+  <ol>
+    <% @recipe.directions.each do |d| %>
+      <li><%= d.instruction %></li>
+    <% end %>
+  </ol>
+</div>
+
+
+
+
+
+
+  <!-- <div class="col-md-6"> -->
+    <!-- <h3>Ingredients</h3> -->
+    <!-- <div id="ingredients"> -->
+      <%#= r.simple_fields_for :ingredients do |ingredient| %>
+
+      <%#= ingredient.input :name, input_html: { class: 'form-input form-control' } %>
+      <%#= link_to_remove_association "Remove", ingredient, class: "form-button btn btn-default" %>
+        <%#= render 'ingredient_fields', r: ingredient %>
+      <%# end %>
+      <!-- <div class="links"> -->
+        <%#= link_to_add_association 'Add Ingredient', r, :ingredients, class: "btn btn-default add-button" %>
+      <!-- </div> -->
+    <!-- </div> -->
+  <!-- </div> -->
+  <!-- <div class="col-md-6"> -->
+    <!-- <h3>Directions</h3> -->
+    <!-- <div id="directions"> -->
+      <%#= r.simple_fields_for :directions do |direction| %>
+        <%#= render 'direction_fields', r: direction %>
+      <%# end %>
+      <!-- <div class="links"> -->
+        <%#= link_to_add_association 'Add Step', r, :directions, class: "btn btn-default add-button" %>
+      <!-- </div> -->
+    <!-- </div> -->
+  <!-- </div> -->
+
+
+
+
+
 </div>

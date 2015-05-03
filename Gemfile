@@ -37,6 +37,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem "rails_12factor", group: :production
 
 gem "bootstrap-sass"
+gem "font-awesome-rails"
+gem "jquery-ui-rails"
 
 gem 'carrierwave'
 gem "mini_magick"

@@ -6,14 +6,22 @@ class Recipe < ActiveRecord::Base
 
   belongs_to :user
 
-  has_one :direction
+  has_many :directions
 
   has_many :inclusions, dependent: :destroy
-  has_many :recipe_ingredients, through: :inclusions, source: :ingredient
+  has_many :ingredients, through: :inclusions
 
   #has_many :categorizations, dependent: :destroy
   #has_many :categories, through: :categorizations
   belongs_to :category
+
+  accepts_nested_attributes_for :ingredients, reject_if: lambda {|x|
+                                              x[:qty].blank? && x[:name].blank? },
+                                              allow_destroy: true
+
+  accepts_nested_attributes_for :directions, reject_if: lambda {|x|
+                                              x[:instruction].blank? },
+                                              allow_destroy: true
 
   mount_uploader :image, ImageUploader
 

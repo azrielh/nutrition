@@ -6,17 +6,19 @@ class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
     #use first otherwise it will return a record.
-    @appetizers = Category.where(name: 'Appetizer').first.recipes
-    @entrees = Category.where(name: 'Entree').first.recipes
-    @desserts = Category.where(name: 'Dessert').first.recipes
-    @sides = Category.where(name: 'Sides').first.recipes
-    @bulk_recipes = Category.where(name: 'Bulk Recipe').first.recipes
-    @inactive = Category.where(name: 'InActive').first.recipes
-
+    @appetizers = Category.category_search('Appetizer')
+    @entrees = Category.category_search('Entree')
+    @desserts = Category.category_search('Dessert')
+    @sides = Category.category_search('Sides')
+    @bulk_recipes = Category.category_search('Bulk Recipe')
+    @inactive = Category.category_search('InActive')
   end
 
   def new
     @recipe = Recipe.new
+    @recipe.ingredients.build
+    @recipe.directions.build
+
   end
 
   def create
@@ -29,6 +31,17 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @recipe.ingredients.build
+    # @ingredient = UsdaNutrientDatabase::Food.where("long_description ilike '%tomatoes%'")
+    #@calories =
+    # @food = UsdaNutrientDatabase::Food.first.foods_nutrients
+    # This returns the Protein value (203)
+    # UsdaNutrientDatabase::Food.first.foods_nutrients.where('nutrient_value ilik =  ).nutrient_value
+    # this list all of the food nutrients values for the specific food..
+    # UsdaNutrientDatabase::Food.first.foods_nutrients
+    # This shows the nutrient description for the number
+    # UsdaNutrientDatabase::Nutrient.find_by_nutrient_number(203).nutrient_description
+
   end
 
   def edit
@@ -48,6 +61,9 @@ class RecipesController < ApplicationController
     redirect_to recipes_path, notice: "Successfully Deleted"
   end
 
+
+
+
   private
 
   def find_recipe
@@ -55,9 +71,15 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:title, :description, :image, :category_id)
+    params.require(:recipe).permit(:title, :description, :image, :category_id, { ingredients_atrributes: ingredient_params }, { directions_attributes: directions_params } )
   end
 
+  def ingredient_params
+    [:id, :qty, :unit, :name, :_destroy]
+  end
 
+  def directions_params
+    [:id, :step, :instruction]
+  end
 
 end

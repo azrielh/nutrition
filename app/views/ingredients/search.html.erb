@@ -1,0 +1,26 @@
+<h2>All Results</h2>
+<table>
+<% @foods.each do |i| %>
+  <tr>
+  <td><%= i.long_description %></td>
+      <% i.weights do |w| %>
+        <%= w.gram_weight %>
+        <%= w.amount %>
+        <%= w.measurement_description %>
+      <% end %>
+    <td>Nutrient Number</td>
+    <td>Nutrient Value</td>
+    <td>Units</td>
+  </tr>
+  <tr>
+  <% i.foods_nutrients.each do |n| %>
+    <td></td>
+    <td><%= n.nutrient_number %></td>
+    <td><%= n.nutrient.nutrient_description %></td>
+    <td><%= n.nutrient_value %></td>
+    <td><%= n.nutrient.units %></td>
+
+  </tr>
+    <% end %>
+  <% end %>
+</table>

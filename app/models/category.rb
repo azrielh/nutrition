@@ -7,4 +7,9 @@ class Category < ActiveRecord::Base
   #has_many :categorizations, dependent: :destroy
   #has_many :recipes, through: :categorizations
 
+
+  def self.category_search(cat)
+    where(name: cat).first.recipes
+  end
+
 end

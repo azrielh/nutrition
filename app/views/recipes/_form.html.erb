@@ -1,7 +1,28 @@
-<%= simple_form_for @recipe, html: {class: "form-horizontal"} do |r| %>
-    <%= r.input :title, placeholder: "Add recipe title", class: "form-control" %>
-    <%= r.input :description, placeholder: "Write a recipe description", class: "form-control" %>
-    <%= r.input :image, class: "form-control" %>
-    <%= r.association :category, as: :radio_buttons %>
-    <%= r.submit "Save Recipe", class: "btn btn-primary" %>
+<div class="container">
+<%= simple_form_for @recipe, html: {class: "form-horizontal"} do |f| %>
+    <%= f.input :title, placeholder: "Add recipe title", class: "form-control" %>
+    <%= f.input :description, placeholder: "Write a recipe description", class: "form-control" %>
+    <%= f.input :image, class: "form-control" %>
+    <%= f.association :category, as: :radio_buttons %>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Ingredients</h2>
+      <%= f.full_error :ingredients %>
+      <%= f.simple_fields_for :ingredients do |ingredient| %>
+        <%= render "ingredient_fields", f: ingredient %>
+      <% end %>
+      <%= link_to_add_association 'Add more ingredients', f, :ingredients,  "data-association-insertion-method": 'before' %>
+    </div>
+    <div class="col-md-6">
+      <h2>Directions</h2>
+      <%= f.full_error :directions %>
+      <%= f.simple_fields_for :directions do |directions| %>
+        <%= render "direction_fields", f: directions %>
+      <% end %>
+      <%= link_to_add_association "Add Step", f, :directions %>
+    </div>
+  </div>
+  <%= f.submit "Save Recipe", class: "btn btn-primary" %>
 <% end %>
+</div>

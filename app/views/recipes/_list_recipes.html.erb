@@ -1,0 +1,9 @@
+<div class="each-recipe">
+  <i class="fa fa-bars x4"></i>
+  <%= link_to '<i class="fa fa-pencil x4"></i>'.html_safe, edit_recipe_path(r) %>
+  <%= link_to '<i class="fa fa-trash x4"></i>'.html_safe, recipe_path(r), method: :delete, data: { confirm: "are you sure?"} %>
+  <%= link_to r.title, recipe_path(r) %>
+  <%= link_to recipe_path(r) do %>
+    <%= image_tag r.image.url(:thumb), class: "list-img" %>
+  <% end %>
+</div>
