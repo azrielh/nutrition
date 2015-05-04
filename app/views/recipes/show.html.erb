@@ -17,13 +17,16 @@
     <%#= x.long_description %>
   <%# end %>
 
-  <% @food.each do |x| %>
-    <%= x.nutrient_number %>
-    <%= x.nutrient_value %>
-  <% end %>
+
+
+
+
 
   <%= render 'form_search' %>
 
+  <%#= simple_form_for [@ingredient, @recipe] %>
+
+  <%# end %>
 
 
 <div class="col-md-6">
@@ -44,39 +47,29 @@
   </ol>
 </div>
 
+<script id="food-test-template" type="x-tmpl-mustache">
+  <div class="foods">
+    <h2>Item Name: {{item_name}}</h2>
+    <p>Calories: {{nf_calories}} kcal</p>
+    <p>Protein: {{nf_protein}}g</p>
+    <p>Total Fat: {{nf_total_fat}}g</p>
 
+  </div>
+</script>
 
+<div class="food"></div>
 
+<!-- this is a test for the qjax and mustache to reference -->
+<script id="campaign-listing-template" type="x-tmpl-mustache">
+  <div class="campaign">
+    <h2><a href="javascript:void(0);" data-id="{{id}}">{{title}}</a></h2>
+    <p>{{description}}</p>
+    <hr>
+  </div>
+</script>
 
-
-  <!-- <div class="col-md-6"> -->
-    <!-- <h3>Ingredients</h3> -->
-    <!-- <div id="ingredients"> -->
-      <%#= r.simple_fields_for :ingredients do |ingredient| %>
-
-      <%#= ingredient.input :name, input_html: { class: 'form-input form-control' } %>
-      <%#= link_to_remove_association "Remove", ingredient, class: "form-button btn btn-default" %>
-        <%#= render 'ingredient_fields', r: ingredient %>
-      <%# end %>
-      <!-- <div class="links"> -->
-        <%#= link_to_add_association 'Add Ingredient', r, :ingredients, class: "btn btn-default add-button" %>
-      <!-- </div> -->
-    <!-- </div> -->
-  <!-- </div> -->
-  <!-- <div class="col-md-6"> -->
-    <!-- <h3>Directions</h3> -->
-    <!-- <div id="directions"> -->
-      <%#= r.simple_fields_for :directions do |direction| %>
-        <%#= render 'direction_fields', r: direction %>
-      <%# end %>
-      <!-- <div class="links"> -->
-        <%#= link_to_add_association 'Add Step', r, :directions, class: "btn btn-default add-button" %>
-      <!-- </div> -->
-    <!-- </div> -->
-  <!-- </div> -->
-
-
-
+<div class="campaigns"></div>
+<div class="show-campaign"></div>
 
 
 </div>

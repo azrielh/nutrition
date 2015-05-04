@@ -71,7 +71,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:title, :description, :image, :category_id, { ingredients_atrributes: ingredient_params }, { directions_attributes: directions_params } )
+    params.require(:recipe).permit(:title, :description, :image, :category_id, { ingredients_attributes: ingredient_params }, { directions_attributes: directions_params } )
   end
 
   def ingredient_params
@@ -79,7 +79,7 @@ class RecipesController < ApplicationController
   end
 
   def directions_params
-    [:id, :step, :instruction]
+    [:id, :step, :instruction, :_destroy]
   end
 
 end
