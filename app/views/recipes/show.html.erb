@@ -31,7 +31,7 @@
 
 <div class="col-md-6">
   <h2>Ingredients</h2>
-  <%= @recipe.ingredients.each do |i| %>
+  <% @recipe.ingredients.each do |i| %>
     <%= i.qty %>
     <%= i.unit %>
     <%= i.name %>

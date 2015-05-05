@@ -1,9 +1,25 @@
 <div class="form-inline clearfix">
-  <div class="nested-fields well">
+  <div class="nested-fields well ingredient">
     <%= f.input :qty, input_html: { class: 'form-input form-control'} %>
     <%= f.input :unit, input_html: { class: 'form-input form-control' } %>
     <%= f.input :name, input_html: { class: 'form-input form-control search-term' } %>
+    <%= f.input :calories, input_html: { class: 'form-input form-control calories-field' }, as: :string %>
+    <%= f.input :total_fat, input_html: { class: 'form-input form-control total-fat-field' }, as: :string %>
+    <%= f.input :saturated_fat, input_html: { class: 'form-input form-control saturated-fat-field' }, as: :string %>
+    <%= f.input :trans_fat, input_html: { class: 'form-input form-control trans-fat-field' }, as: :string %>
+    <%= f.input :cholesterol, input_html: { class: 'form-input form-control cholesterol-field' }, as: :string %>
+    <%= f.input :sodium, input_html: { class: 'form-input form-control sodium-field' }, as: :string %>
+    <%= f.input :total_carbs, input_html: { class: 'form-input form-control total-carbs-field' }, as: :string %>
+    <%= f.input :dietary_fiber, input_html: { class: 'form-input form-control dietary-fiber-field' }, as: :string %>
+    <%= f.input :sugars, input_html: { class: 'form-input form-control sugars-field' }, as: :string %>
     <%= f.input :protein, input_html: { class: 'form-input form-control protein-field' }, as: :string %>
+    <%= f.input :vitamin_a, input_html: { class: 'form-input form-control vitamin-a-field' }, as: :string %>
+    <%= f.input :vitamin_c, input_html: { class: 'form-input form-control vitamin-c-field' }, as: :string %>
+    <%= f.input :calcium, input_html: { class: 'form-input form-control calcium-field' }, as: :string %>
+    <%= f.input :iron, input_html: { class: 'form-input form-control iron-field' }, as: :string %>
+    <%= f.input :nutrient_databank_number, input_html: { class: 'form-input form-control ingredient-id-field' }, as: :string %>
+    <%#= f.input :nf_serving_weight_grams, input_html: { class: 'form-input form-control serving-weight-field' }, as: :string %>
+
     <%#= f.input :protein, input_html: { class: 'form-input form-control' }, as: :hidden %>
     <%= link_to_remove_association "Remove", f %>
     <hr>
