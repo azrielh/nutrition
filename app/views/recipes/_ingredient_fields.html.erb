@@ -1,4 +1,4 @@
-<div class="form-inline clearfix">
+<!-- <div class="form-inline clearfix"> -->
   <div class="nested-fields well ingredient">
     <%= f.input :qty, input_html: { class: 'form-input form-control'} %>
     <%= f.input :unit, input_html: { class: 'form-input form-control' } %>
@@ -17,11 +17,11 @@
     <%= f.input :vitamin_c, input_html: { class: 'form-input form-control vitamin-c-field' }, as: :string %>
     <%= f.input :calcium, input_html: { class: 'form-input form-control calcium-field' }, as: :string %>
     <%= f.input :iron, input_html: { class: 'form-input form-control iron-field' }, as: :string %>
-    <%= f.input :nutrient_databank_number, input_html: { class: 'form-input form-control ingredient-id-field' }, as: :string %>
-    <%#= f.input :nf_serving_weight_grams, input_html: { class: 'form-input form-control serving-weight-field' }, as: :string %>
+    <%= f.input :nutritionix_id, input_html: { class: 'form-input form-control ingredient-id-field' }, as: :string %>
+    <%= f.input :serving_weight, input_html: { class: 'form-input form-control serving-weight-field' }, as: :string %>
 
     <%#= f.input :protein, input_html: { class: 'form-input form-control' }, as: :hidden %>
     <%= link_to_remove_association "Remove", f %>
     <hr>
   </div>
-</div>
+<!-- </div> -->

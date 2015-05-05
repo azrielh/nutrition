@@ -17,7 +17,7 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @recipe.ingredients.build
-    @recipe.directions.build
+    3.times { @recipe.directions.build }
 
   end
 
@@ -31,7 +31,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe.ingredients.build
+    #@recipe.ingredients.build
     # @ingredient = UsdaNutrientDatabase::Food.where("long_description ilike '%tomatoes%'")
     #@calories =
     # @food = UsdaNutrientDatabase::Food.first.foods_nutrients
@@ -75,7 +75,7 @@ class RecipesController < ApplicationController
   end
 
   def ingredient_params
-    [:id, :qty, :unit, :name, :_destroy]
+    [:id, :qty, :unit, :name, :calories, :total_fat, :saturated_fat, :trans_fat, :cholesterol, :sodium, :total_carbs, :dietary_fiber, :sugars, :protein, :vitamin_a, :vitamin_c, :calcium, :iron, :nutrient_databank_number, :serving_weight, :nutritionix_id, :_destroy]
   end
 
   def directions_params
