@@ -4,8 +4,6 @@ $(document).ready(function() {
     var value = this.value;
     var $form = $(this).parents('.ingredient');
     var callback = function (data) {
-      //$form
-      //$form.find('.calories-field')
       $form.find('.calories-field').val(data[0].nf_calories);
       $form.find('.total-fat-field').val(data[0].nf_total_fat);
       $form.find('.saturated-fat-field').val(data[0].nf_saturated_fat);
@@ -56,14 +54,6 @@ $(document).ready(function() {
       success: function (data) {
         var result = data.hits.map(function (datum) { return datum.fields });
         callback(result);
-        console.log(data.hits);
-        console.log(result);
-        var template = $('#food-test-template').html();
-        for(var i = 0; i < data.hits.length; i++) {
-          var ingredient = data.hits[i].fields;
-          var html = Mustache.render(template, ingredient);
-          $('.food').append(html);
-        }
       }
     });
   }
