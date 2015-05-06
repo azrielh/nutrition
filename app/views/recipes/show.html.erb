@@ -12,30 +12,26 @@
   <i class="fa fa-trash"></i><%= link_to "Delete", recipe_path(@recipe), method: :delete, data: {confirm: "are you sure?"}, class: "btn btn-default" %>
   <%= link_to "Back", recipes_path, class: "btn btn-default" %>
 
-  <h1>add ingredients and directions on this page</h1>
-  <%#= @ingredient.each do |x| %>
-    <%#= x.long_description %>
-  <%# end %>
-
-
-
-
-
+  <p>add ingredients and directions on this page</p>
 
   <%= render 'form_search' %>
 
-  <%#= simple_form_for [@ingredient, @recipe] %>
-
-  <%# end %>
-
-
 <div class="col-md-6">
   <h2>Ingredients</h2>
-  <% @recipe.ingredients.each do |i| %>
-    <%= i.qty %>
-    <%= i.unit %>
-    <%= i.name %>
-  <% end %>
+  <table>
+    <tr>
+      <th>Qty</th>
+      <th>Unit</th>
+      <th>Ingredient</th>
+    </tr>
+    <% @recipe.ingredients.each do |i| %>
+      <tr>
+        <td><%= i.qty %></td>
+        <td><%= i.unit %></td>
+        <td><%= i.name %></td>
+      </tr>
+    <% end %>
+  </table>
 </div>
 
 <div class="col-md-6">

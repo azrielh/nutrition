@@ -1,31 +1,36 @@
 $(document).ready(function() {
+  var keyupTimeout;
 
   $(document).on("keyup", ".search-term", function(){
-    var value = this.value;
-    var $form = $(this).parents('.ingredient');
-    var callback = function (data) {
-      $form.find('.calories-field').val(data[0].nf_calories);
-      $form.find('.total-fat-field').val(data[0].nf_total_fat);
-      $form.find('.saturated-fat-field').val(data[0].nf_saturated_fat);
-      $form.find('.trans-fat-field').val(data[0].nf_trans_fatty_acid);
-      $form.find('.cholesterol-field').val(data[0].nf_cholesterol);
-      $form.find('.sodium-field').val(data[0].nf_sodium);
-      $form.find('.total-carbs-field').val(data[0].nf_total_carbohydrate);
-      $form.find('.dietary-fiber-field').val(data[0].nf_dietary_fiber);
-      $form.find('.sugars-field').val(data[0].nf_sugars);
-      $form.find('.protein-field').val(data[0].nf_protein);
-      $form.find('.vitamin-a-field').val(data[0].nf_vitamin_a_dv);
-      $form.find('.vitamin-c-field').val(data[0].nf_vitamin_c_dv);
-      $form.find('.calcium-field').val(data[0].nf_calcium_dv);
-      $form.find('.iron-field').val(data[0].nf_iron_dv);
-      $form.find('.ingredient-id-field').val(data[0].item_id);
-      $form.find('.serving-weight-field').val(data[0].nf_serving_weight_grams);
+    clearTimeout(keyupTimeout);
+    var self = this;
+    keyupTimeout = setTimeout(function() {
+      var value = self.value;
+      var $form = $(self).parents('.ingredient');
+      var callback = function (data) {
+        $form.find('.calories-field').val(data[0].nf_calories);
+        $form.find('.total-fat-field').val(data[0].nf_total_fat);
+        $form.find('.saturated-fat-field').val(data[0].nf_saturated_fat);
+        $form.find('.trans-fat-field').val(data[0].nf_trans_fatty_acid);
+        $form.find('.cholesterol-field').val(data[0].nf_cholesterol);
+        $form.find('.sodium-field').val(data[0].nf_sodium);
+        $form.find('.total-carbs-field').val(data[0].nf_total_carbohydrate);
+        $form.find('.dietary-fiber-field').val(data[0].nf_dietary_fiber);
+        $form.find('.sugars-field').val(data[0].nf_sugars);
+        $form.find('.protein-field').val(data[0].nf_protein);
+        $form.find('.vitamin-a-field').val(data[0].nf_vitamin_a_dv);
+        $form.find('.vitamin-c-field').val(data[0].nf_vitamin_c_dv);
+        $form.find('.calcium-field').val(data[0].nf_calcium_dv);
+        $form.find('.iron-field').val(data[0].nf_iron_dv);
+        $form.find('.ingredient-id-field').val(data[0].item_id);
+        $form.find('.serving-weight-field').val(data[0].nf_serving_weight_grams);
 
-      // debugger
-    };
-    search(value, callback);
-    // console.log($(this).parents(".nested-fields").find(".protein-field").val());
-    // $(this).parents(".nested-fields").find(".protein-field").val($(this).val());
+        // debugger
+      };
+      search(value, callback);
+      // console.log($(this).parents(".nested-fields").find(".protein-field").val());
+      // $(this).parents(".nested-fields").find(".protein-field").val($(this).val());
+    }, 500);
   });
 
   var r_query = {
@@ -48,12 +53,21 @@ $(document).ready(function() {
       type: 'GET',
       data: r_query,
       error: function (data) {
-      alert('error');
+      // alert('error');
       console.log(r_query);
       },
       success: function (data) {
+        console.log(data);
         var result = data.hits.map(function (datum) { return datum.fields });
+        var item_names = result.map(function(datum) { return datum.item_name });
+
+        // console.log(result);
+        console.log(item_names);
         callback(result);
+
+        $( ".search-items" ).autocomplete({
+          source: item_names,
+        });
       }
     });
   }

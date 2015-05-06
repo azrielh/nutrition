@@ -49,7 +49,9 @@ gem 'cocoon'
 gem "quiet_assets"
 gem 'kaminari'
 
-gem 'usda-nutrient-database', :git => 'git@github.com:jeffumich/usda-nutrient-database.git'
+# gem 'chosen-rails', '~> 1.4.1'
+
+# gem 'usda-nutrient-database', :git => 'git@github.com:jeffumich/usda-nutrient-database.git'
 
 group :development, :test do
 

@@ -2,7 +2,9 @@
   <div class="nested-fields well ingredient">
     <%= f.input :qty, input_html: { class: 'form-input form-control'} %>
     <%= f.input :unit, input_html: { class: 'form-input form-control' } %>
-    <%= f.input :name, input_html: { class: 'form-input form-control search-term typeahead' } %>
+    <div class="ui-autocomplete-input">
+      <%= f.input :name, input_html: { class: 'form-input form-control search-term search-items', id: 'search-items' } %>
+    </div>
     <%= f.input :calories, input_html: { class: 'form-input form-control calories-field' }, as: :string %>
     <%= f.input :total_fat, input_html: { class: 'form-input form-control total-fat-field' }, as: :string %>
     <%= f.input :saturated_fat, input_html: { class: 'form-input form-control saturated-fat-field' }, as: :string %>
