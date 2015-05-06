@@ -45,3 +45,107 @@ recipe show page
   border-radius: 50%;
   float: right;
 }
+
+/*-----------------------
+nutritional table
+-----------------------*/
+
+.nutritional-table {
+  border: black 2px solid;
+  width: 350px;
+  height: 450px;
+  padding: 1px 8px;
+  float: right;
+  .title {
+    font-size: 34px;
+    font-family: 'Archivo Black', Arial, sans-serif;
+    letter-spacing: -2px;
+  }
+  .recipe-name {
+    font-size: 14px;
+    font-family: Arial, 'Helvetica-Neue';
+  }
+  .serving-size {
+    margin-bottom: 5px;
+  }
+  .thick-bar {
+    height: 10px;
+    background-color: #000;
+  }
+  .amount-per-serving {
+    font-size: 11px;
+    font-weight: bold;
+    font-family: Arial, 'Helvetica-Neue', sans-serif;
+  }
+  .thin-bar {
+    height: 1px;
+    background-color: #000;
+  }
+  .thin-bar-short {
+    float: right;
+    width: 95%;
+    height: 1px;
+    background-color: #000;
+  }
+  .clearfix {
+    clear: left;
+  }
+  .calories .c-bold {
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Arial, 'Helvetica-Neue', sans-serif;
+    display: inline-block;
+  }
+  .calories .c-thin {
+    font-size: 14px;
+    font-weight: 200;
+    font-family: Arial, 'Helvetica-Neue', sans-serif;
+  }
+  .medium-bar {
+    height: 6px;
+    background-color: #000;
+  }
+  .c-fat {
+    float: right;
+    display: inline-block;
+  }
+  .percent-dv {
+    display: block;
+    text-align: right;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Arial, 'Helvetica-Neue', sans-serif;
+  }
+  .fat {
+    font-size: 13px;
+    .minor.sat-fat {
+      font-size: 12px;
+      padding-left: 17px;
+    }
+  }
+  .carbs {
+    font-size: 13px;
+    .minor {
+      font-size: 12px;
+      padding-left: 17px;
+    }
+  }
+  .protein {
+    font-size: 13px;
+  }
+  .dv {
+    font-size: 13px;
+  }
+  .nutrition-comment {
+    font-size: 11px;
+    color: grey;
+  }
+  .dv-percent {
+    text-align: right;
+    font-weight: bold;
+    display: block;
+    float: right;
+  }
+
+
+}

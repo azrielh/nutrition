@@ -1,15 +1,18 @@
 <div class="container">
   <h1>Recipe</h1>
   <%= image_tag @recipe.image.url(:large) %>
+
+  <%= render 'nutritional_table' %>
+
   <h1><%= @recipe.title %></h1>
   <p><%= @recipe.description %></p>
 
   <div class="tag">
     <%= @recipe.category.name %>
   </div>
-
-  <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-default" %>
-  <i class="fa fa-trash"></i><%= link_to "Delete", recipe_path(@recipe), method: :delete, data: {confirm: "are you sure?"}, class: "btn btn-default" %>
+  <br>
+  <%= link_to '<i class="fa fa-pencil x4"></i>'.html_safe, edit_recipe_path(@recipe) %>
+  <%= link_to '<i class="fa fa-trash x4"></i>'.html_safe, recipe_path(@recipe), method: :delete, data: { confirm: "are you sure?"} %>
   <%= link_to "Back", recipes_path, class: "btn btn-default" %>
 
   <p>add ingredients and directions on this page</p>
@@ -24,12 +27,14 @@
       <th>Unit</th>
       <th>Ingredient</th>
     </tr>
+    <hr>
     <% @recipe.ingredients.each do |i| %>
       <tr>
         <td><%= i.qty %></td>
         <td><%= i.unit %></td>
         <td><%= i.name %></td>
       </tr>
+      <hr>
     <% end %>
   </table>
 </div>
@@ -39,33 +44,10 @@
   <ol>
     <% @recipe.directions.each do |d| %>
       <li><%= d.instruction %></li>
+      <hr>
     <% end %>
   </ol>
 </div>
-
-<script id="food-test-template" type="x-tmpl-mustache">
-  <div class="foods">
-    <h2>Item Name: {{item_name}}</h2>
-    <p>Calories: {{nf_calories}} kcal</p>
-    <p>Protein: {{nf_protein}}g</p>
-    <p>Total Fat: {{nf_total_fat}}g</p>
-
-  </div>
-</script>
-
-<div class="food"></div>
-
-<!-- this is a test for the qjax and mustache to reference -->
-<script id="campaign-listing-template" type="x-tmpl-mustache">
-  <div class="campaign">
-    <h2><a href="javascript:void(0);" data-id="{{id}}">{{title}}</a></h2>
-    <p>{{description}}</p>
-    <hr>
-  </div>
-</script>
-
-<div class="campaigns"></div>
-<div class="show-campaign"></div>
 
 
 </div>

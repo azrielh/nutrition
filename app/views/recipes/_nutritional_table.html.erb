@@ -1,0 +1,47 @@
+<div class="nutritional-table">
+  <div class="title">Nutrition Facts</div>
+  <div class="recipe-name"><%= @recipe.title %></div>
+  <div class="serving-size">Serving Size: (xxxg)</div>
+  <div class="thick-bar"></div>
+  <div class="amount-per-serving">Amount Per Serving</div>
+  <div class="thin-bar"></div>
+  <div class="calories">
+    <div class="c-bold">Calories  <span class="c-thin"><%= @recipe.calories.round(0) %></span></div>
+    <div class="c-fat">Calories from Fat  <span class="c-fat-thin"><%= @recipe.total_fat.round(0) * 9 %></span></div>
+  </div>
+  <div class="medium-bar"></div>
+  <div class="percent-dv">% Daily Value*</div>
+  <div class="thin-bar"></div>
+  <div class="fat">
+    <div class="total_fat"><b>Total Fat </b><%= @recipe.total_fat.round(0) %> g <span class="dv-percent"><%= (@recipe.total_fat / 65 * 100).round(0) %> % </span></div>
+    <div class="thin-bar-short"></div>
+    <div class="sat-fat minor">Saturated Fat <%= @recipe.saturated_fat.round(0) %> g<span class="dv-percent"><%= (@recipe.saturated_fat / 20 * 100).round(0) %> % </span></div>
+    <div class="thin-bar-short"></div>
+    <div class="sat-fat minor"><i>Trans</i> Fat
+      <%= @recipe.trans_fat.present? ? @recipe.trans_fat.round(0) : 0 %> g</div>
+  </div>
+  <div class="thin-bar"></div>
+  <div class="protein"><b>Cholesterol</b> <%= @recipe.cholesterol.round(0) %> mg<span class="dv-percent"><%= (@recipe.cholesterol / 300 * 100).round(0) %> % </span></div>
+  <div class="thin-bar"></div>
+  <div class="protein"><b>Sodium</b> <%= @recipe.sodium.round(0) %> mg<span class="dv-percent"><%= (@recipe.sodium / 2400 * 100).round(0) %> % </span></div>
+  <div class="thin-bar"></div>
+  <div class="carbs">
+    <b>Total Carbohydrates </b><%= @recipe.total_carbs.round(0) %> g <span class="dv-percent"><%= (@recipe.total_carbs / 300 * 100).round(0) %> % </span>
+    <div class="thin-bar-short"></div>
+    <div class="fiber minor">Dietary Fiber <%= @recipe.dietary_fiber.round(0) %> g<span class="dv-percent"><%= (@recipe.dietary_fiber / 25 * 100).round(0) %> % </span></div>
+    <div class="thin-bar-short"></div>
+    <div class="sugars minor">Sugars <%= @recipe.sugars.round(0) %> g</div>
+  </div>
+    <div class="thin-bar"></div>
+  <div class="protein"><b>Protein</b><%= @recipe.protein.round(0) %> g</div>
+  <div class="thick-bar"></div>
+  <div class="dv">Vitamin A <span class="dv-percent"><%= @recipe.vitamin_a.round(0) %> %</span></div>
+  <div class="thin-bar"></div>
+  <div class="dv">Vitamin C <span class="dv-percent"><%= @recipe.vitamin_c.round(0) %> %</span></div>
+  <div class="thin-bar"></div>
+  <div class="dv">Calcium <span class="dv-percent"><%= @recipe.calcium.round(0) %> %</span></div>
+  <div class="thin-bar"></div>
+  <div class="dv">Iron <span class="dv-percent"><%= @recipe.iron.round(0) %> %</span></div>
+  <div class="thin-bar"></div>
+  <div class="nutrition-comment">* Percent daily values are based on a 2000 calorie diet</div>
+</div>
