@@ -23,6 +23,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = current_user.recipes.new recipe_params
+    @recipe.calories = @recipe.calorie_count
     if @recipe.save
       redirect_to recipe_path(@recipe), notice: "Successfully Created"
     else
@@ -60,9 +61,6 @@ class RecipesController < ApplicationController
     @recipe.destroy
     redirect_to recipes_path, notice: "Successfully Deleted"
   end
-
-
-
 
   private
 

@@ -27,6 +27,14 @@ class Recipe < ActiveRecord::Base
 
   # after_initialize :set_defaults
 
+  def calorie_count
+      ingredients.each do |i|
+      count = 0
+      count = count + i.calories.to_f
+      puts count
+    end
+  end
+
   private
 
   #def set_defaults
