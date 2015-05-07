@@ -23,32 +23,23 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = current_user.recipes.new recipe_params
-    if @recipe.save
-      redirect_to recipe_path(@recipe), notice: "Successfully Created"
-    else
-      render :new
-    end
+
+    # if @recipe.save
+    if @recipe.build_recipe(recipe_params)
+       redirect_to recipe_path(@recipe), notice: "Successfully Created"
+     else
+       render :new
+     end
   end
 
   def show
-    #@recipe.ingredients.build
-    # @ingredient = UsdaNutrientDatabase::Food.where("long_description ilike '%tomatoes%'")
-    #@calories =
-    # @food = UsdaNutrientDatabase::Food.first.foods_nutrients
-    # This returns the Protein value (203)
-    # UsdaNutrientDatabase::Food.first.foods_nutrients.where('nutrient_value ilik =  ).nutrient_value
-    # this list all of the food nutrients values for the specific food..
-    # UsdaNutrientDatabase::Food.first.foods_nutrients
-    # This shows the nutrient description for the number
-    # UsdaNutrientDatabase::Nutrient.find_by_nutrient_number(203).nutrient_description
-
   end
 
   def edit
   end
 
   def update
-    if @recipe.update recipe_params
+    if @recipe.build_recipe(recipe_params)
       redirect_to recipe_path(@recipe), notice: "Recipe Successfully updated"
     else
       flash[:notice] = "Could not update"

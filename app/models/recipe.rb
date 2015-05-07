@@ -5,15 +5,11 @@ class Recipe < ActiveRecord::Base
   validates :description, presence: true
 
   belongs_to :user
+  belongs_to :category
 
-  has_many :directions
-
+  has_many :directions, dependent: :destroy
   has_many :inclusions, dependent: :destroy
   has_many :ingredients, through: :inclusions
-
-  #has_many :categorizations, dependent: :destroy
-  #has_many :categories, through: :categorizations
-  belongs_to :category
 
   accepts_nested_attributes_for :ingredients, reject_if: lambda {|x|
                                               x[:qty].blank? && x[:name].blank? },
@@ -25,27 +21,57 @@ class Recipe < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
-  before_save :set_zeros
+  # before_save :set_zeros
+  # before_save :calculate_data
+  # before_save :calc_weight
 
-  before_save :calculate_data
+  def build_recipe(recipe_params)
+    ActiveRecord::Base.transaction do
+      save_or_update(recipe_params)
+      set_zeros
+      calc_weight
+      calculate_data
+      save ? self :false
+    end
+  end
+
+  def save_or_update(data)
+    persisted? ? update!(data) : save!
+  end
 
   private
 
+  def calc_weight
+    self.total_weight = self.ingredients.group(:qty).count.keys.sum
+  end
+
+  def qty_ingredients
+    ingredients.group(:qty).count.keys.sum
+  end
+
+  def calculate_value_g(value_type)
+    ingredients.group(value_type).count.keys.sum * qty_ingredients
+  end
+
+  def calculate_value_mg(value_type)
+    ingredients.group(value_type).count.keys.sum * qty_ingredients / 1000
+  end
+
   def calculate_data
-    self.calories = self.ingredients.group(:calories).count.keys.sum * self.ingredients.group(:qty).count.keys.sum
-    self.total_fat = self.ingredients.group(:total_fat).count.keys.sum * self.ingredients.group(:qty).count.keys.sum
-    self.saturated_fat = self.ingredients.group(:saturated_fat).count.keys.sum * self.ingredients.group(:qty).count.keys.sum
-    self.trans_fat = self.ingredients.group(:trans_fat).count.keys.sum * self.ingredients.group(:qty).count.keys.sum
-    self.cholesterol = self.ingredients.group(:cholesterol).count.keys.sum * self.ingredients.group(:qty).count.keys.sum
-    self.sodium = self.ingredients.group(:sodium).count.keys.sum * self.ingredients.group(:qty).count.keys.sum
-    self.total_carbs = self.ingredients.group(:total_carbs).count.keys.sum * self.ingredients.group(:qty).count.keys.sum
-    self.dietary_fiber = self.ingredients.group(:dietary_fiber).count.keys.sum * self.ingredients.group(:qty).count.keys.sum
-    self.sugars = self.ingredients.group(:sugars).count.keys.sum * self.ingredients.group(:qty).count.keys.sum
-    self.protein = self.ingredients.group(:protein).count.keys.sum * self.ingredients.group(:qty).count.keys.sum
-    self.vitamin_a = self.ingredients.group(:vitamin_a).count.keys.sum * self.ingredients.group(:qty).count.keys.sum
-    self.vitamin_c = self.ingredients.group(:vitamin_c).count.keys.sum * self.ingredients.group(:qty).count.keys.sum
-    self.calcium = self.ingredients.group(:calcium).count.keys.sum * self.ingredients.group(:qty).count.keys.sum
-    self.iron = self.ingredients.group(:iron).count.keys.sum * self.ingredients.group(:qty).count.keys.sum
+    self.calories      = calculate_value_g(:calories)
+    self.total_fat     = calculate_value_g(:total_fat)
+    self.saturated_fat = calculate_value_g(:saturated_fat)
+    self.trans_fat     = calculate_value_g(:trans_fat)
+    self.cholesterol   = calculate_value_mg(:cholesterol)
+    self.sodium        = calculate_value_mg(:sodium)
+    self.total_carbs   = calculate_value_g(:total_carbs)
+    self.dietary_fiber = calculate_value_g(:dietary_fiber)
+    self.sugars        = calculate_value_g(:sugars)
+    self.protein       = calculate_value_g(:protein)
+    self.vitamin_a     = calculate_value_g(:vitamin_a)
+    self.vitamin_c     = calculate_value_g(:vitamin_c)
+    self.calcium       = calculate_value_g(:calcium)
+    self.iron          = calculate_value_g(:iron)
   end
 
 

@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  get "/search" => "ingredients#search"
-
   resources :recipes
 
   resources :users, only: [:new, :create]
