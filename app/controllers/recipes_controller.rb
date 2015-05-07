@@ -3,6 +3,7 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_recipe, only: [:show, :edit, :update, :destroy]
 
+
   def index
     @recipes = Recipe.all
     #use first otherwise it will return a record.
@@ -18,12 +19,10 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
     @recipe.ingredients.build
     @recipe.directions.build
-
   end
 
   def create
     @recipe = current_user.recipes.new recipe_params
-    @recipe.calories = @recipe.calorie_count
     if @recipe.save
       redirect_to recipe_path(@recipe), notice: "Successfully Created"
     else
