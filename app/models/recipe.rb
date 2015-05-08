@@ -26,6 +26,7 @@ class Recipe < ActiveRecord::Base
   # before_save :calc_weight
 
   def build_recipe(recipe_params)
+    # this adds all the transactions in one commit.
     ActiveRecord::Base.transaction do
       save_or_update(recipe_params)
       set_zeros
@@ -54,7 +55,7 @@ class Recipe < ActiveRecord::Base
   end
 
   def calculate_value_mg(value_type)
-    ingredients.group(value_type).count.keys.sum * qty_ingredients / 1000
+    ingredients.group(value_type).count.keys.sum * qty_ingredients
   end
 
   def calculate_data

@@ -8,13 +8,14 @@ $(document).ready(function() {
       var value = self.value;
       var $form = $(self).parents('.ingredient');
       var callback = function (data) {
-        //normalising the data???.................................
+        //normalising the data??? should refactor to the model - store ingredient data as is
         $form.find('.calories-field').val(data[0].nf_calories/data[0].nf_serving_weight_grams);
         $form.find('.total-fat-field').val(data[0].nf_total_fat/data[0].nf_serving_weight_grams);
         $form.find('.saturated-fat-field').val(data[0].nf_saturated_fat/data[0].nf_serving_weight_grams);
         $form.find('.trans-fat-field').val(data[0].nf_trans_fatty_acid/data[0].nf_serving_weight_grams);
-        $form.find('.cholesterol-field').val(data[0].nf_cholesterol/data[0].nf_serving_weight_grams);
-        $form.find('.sodium-field').val(data[0].nf_sodium/data[0].nf_serving_weight_grams);
+        // sodium and cholestrol are returned in mg
+        $form.find('.cholesterol-field').val((data[0].nf_cholesterol / 1000) /data[0].nf_serving_weight_grams);
+        $form.find('.sodium-field').val((data[0].nf_sodium / 1000) / data[0].nf_serving_weight_grams);
         $form.find('.total-carbs-field').val(data[0].nf_total_carbohydrate/data[0].nf_serving_weight_grams);
         $form.find('.dietary-fiber-field').val(data[0].nf_dietary_fiber/data[0].nf_serving_weight_grams);
         $form.find('.sugars-field').val(data[0].nf_sugars/data[0].nf_serving_weight_grams);
@@ -40,8 +41,13 @@ $(document).ready(function() {
         "field":"_score",
         "order":"desc"
       },
+      "min_score":0.5,
       "filters":{
-        "item_type":3
+        "item_type":3,
+        "nf_serving_weight_grams":{
+          "from":0,
+          "to":10000
+        }
       }
     };
 

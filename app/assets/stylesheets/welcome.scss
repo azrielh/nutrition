@@ -1,3 +1,50 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.welcome {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.1);
+  .welcome-title {
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    li {
+      display: inline-block;
+      z-index: 1000;
+    }
+  }
+  .welcome-message {
+    position: absolute;
+    margin: 0 auto;
+    top: 50px;
+    left: 40%;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 50px;
+    border-top: 1px #fff solid;
+    border-bottom: 1px #fff solid;
+    border-left: 1px #fff solid;
+    box-shadow: 0px 0px 10px 0px;
+    text-shadow: 0px 2px 3px rgba(0,0,0,0.5);
+    h2 {
+      //position: absolute;
+      font-size: 80px;
+      color: #fff;
+      top: 50px;
+      left: auto;
+      width: 100%;
+      font-family: 'Archivo Black', Arial, sans-serif;
+    }
+  }
+}
+
+.welcome-video {
+
+}
+.navbar {
+  li.name {
+    color: grey;
+  }
+}

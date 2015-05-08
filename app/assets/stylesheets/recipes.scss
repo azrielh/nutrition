@@ -24,11 +24,13 @@
   background-color: #779cf5;
   display: inline-block;
   border-radius: 5px;
+  position: relative;
+  //top: -7px;
 }
 
 
 /*-----------------------
-recipe show page
+all recipes index page
 -----------------------*/
 
 .each-recipe {
@@ -46,15 +48,42 @@ recipe show page
   float: right;
 }
 
+.recipe-title {
+  display: inline-block;
+  margin-right: 40px;
+}
+
+/*-----------------------
+recipe show page
+-----------------------*/
+
+.recipe-image {
+  background-size: cover;
+  h1 {
+    font-family: 'Helvetica-Neue', Arial, sans-serif;
+  }
+  p {
+    font-family: 'Helvetica-Neue', Arial, sans-serif;
+  }
+}
+
+img {
+  box-shadow: 0px 0px 10px 0px;
+  margin: 20px 0 20px 0;
+}
+
+
+
 /*-----------------------
 nutritional table
 -----------------------*/
 
 .nutritional-table {
   border: black 2px solid;
-  width: 350px;
-  height: 450px;
-  padding: 1px 8px;
+  width: 100%;
+  max-width: 450px;
+  min-height: 465px;
+  padding: 10px 8px;
   float: right;
   .title {
     font-size: 34px;
@@ -146,6 +175,80 @@ nutritional table
     display: block;
     float: right;
   }
+}
+
+/*-----------------------
+Nutritional Recommendations
+-----------------------*/
+
+.nut-recommendation {
+  background-color: #f8f7f7;
+  min-height: 475px;
+  box-shadow: 0px 2px 5px #888888;
+  h2 {
+    font-family: 'Archivo Black', Arial, sans-serif;
+    font-size: 28px;
+  }
+  h4 {
+    line-height: 12px;
+    font-weight: 100;
+  }
+  p {
+    line-height: 12px;
+    font-weight: 200;
+  }
+}
 
 
+/*-----------------------
+recipe new page
+-----------------------*/
+
+.recipe_category {
+  width: 200px;
+}
+
+/*-----------------------
+directions
+-----------------------*/
+
+.directions {
+  h2 {
+    font-size: 26px;
+    background-color: #000;
+    color: #fff;
+    display: inline-block;
+    width: 30%;
+    padding: 3px 3px 3px 10px;
+    margin-bottom: 0;
+    min-width: 140px;
+  }
+  .direction-underline {
+    border-bottom: 3px #000 solid;
+    padding: 0px;
+    margin: 0px;
+  }
+  .inner-directions {
+  min-height: 300px;
+  padding: 20px 10px 10px 10px;
+
+
+  }
+}
+
+
+/*-----------------------
+ingredients
+-----------------------*/
+.ingredients {
+  h2 {
+    font-size: 26px;
+    background-color: #000;
+    color: #fff;
+    display: inline-block;
+    width: 30%;
+    padding: 3px 3px 3px 10px;
+    margin-bottom: 0;
+    min-width: 160px;
+  }
 }

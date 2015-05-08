@@ -1,0 +1,37 @@
+<h2>Nutritional Analysis</h2>
+
+<h4>Fat Content</h4>
+<p><%= fat_content_description(@recipe.total_fat) %></p>
+<div class="progress">
+  <div class="progress-bar progress-bar-striped active" role="progressbar"
+  aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:<%= (@recipe.total_fat / 65 * 100).round(0) %>%">
+  DV <%= (@recipe.total_fat / 65 * 100).round(0) %> %
+  </div>
+</div>
+
+<h4>Cholesterol Content</h4>
+<p><%= cholesterol_content_description(@recipe.cholesterol) %></p>
+<div class="progress">
+  <div class="progress-bar progress-bar-striped active" role="progressbar"
+  aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:<%= (@recipe.cholesterol / 300 * 100).round(0) %>%">
+  DV <%= (@recipe.cholesterol / 300 * 100).round(0) %> %
+  </div>
+</div>
+
+<h4>Sodium Content</h4>
+<p><%= sodium_content_description(@recipe.sodium) %></p>
+<div class="progress">
+  <div class="progress-bar progress-bar-striped active" role="progressbar"
+  aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:<%= (@recipe.sodium / 2400 * 100).round(0) %>%">
+  DV <%= (@recipe.sodium / 2400 * 100).round(0) %> %
+  </div>
+</div>
+
+<h4>Total Carbohydrates Content</h4>
+<p><%= total_carbs_content_description(@recipe.total_carbs) %></p>
+<div class="progress">
+  <div class="progress-bar progress-bar-striped active" role="progressbar"
+  aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:<%= (@recipe.total_carbs / 300 * 100).round(0) %>%">
+  DV <%= (@recipe.total_carbs / 300 * 100).round(0) %> %
+  </div>
+</div>
