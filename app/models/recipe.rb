@@ -8,8 +8,9 @@ class Recipe < ActiveRecord::Base
   belongs_to :category
 
   has_many :directions, dependent: :destroy
-  has_many :inclusions, dependent: :destroy
-  has_many :ingredients, through: :inclusions
+  #has_many :inclusions, dependent: :destroy
+  #has_many :ingredients, through: :inclusions
+  has_many :ingredients, dependent: :destroy
 
   accepts_nested_attributes_for :ingredients, reject_if: lambda {|x|
                                               x[:qty].blank? && x[:name].blank? },
@@ -24,6 +25,14 @@ class Recipe < ActiveRecord::Base
   # before_save :set_zeros
   # before_save :calculate_data
   # before_save :calc_weight
+
+  def update_recipe
+    ActiveRecord::Base.transaction do
+      calc_weight
+      calculate_data
+      save ? self : false
+    end
+  end
 
   def build_recipe(recipe_params)
     # this adds all the transactions in one commit.

@@ -33,6 +33,8 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @ingredient = Ingredient.new
+    @direction = Direction.new
   end
 
   def edit
