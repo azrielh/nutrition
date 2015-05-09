@@ -1,9 +1,4 @@
-<!-- <div class="form-inline clearfix"> -->
-  <div class="nested-fields">
-    <div class="well">
-      <%#= f.input :step, input_html: { class: 'form-input form-control' } %>
-      <%= f.input :instruction, label: "Step", input_html: { class: 'form-input form-control' } %>
-      <%= link_to_remove_association "Remove Step", f %>
-    </div>
-  </div>
-<!-- </div> -->
+<%= simple_form_for [@recipe, @direction] do |f| %>
+  <%= f.input :instruction, label: "Directions", placeholder: "add directions here...", input_html: { class: 'form-input form-control' } %>
+  <%= f.submit "Save direction", class: "btn btn-primary" %>
+<% end %>

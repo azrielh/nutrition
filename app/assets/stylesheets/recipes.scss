@@ -208,6 +208,10 @@ recipe new page
   width: 200px;
 }
 
+.new-recipe-btn {
+
+}
+
 /*-----------------------
 directions
 -----------------------*/
@@ -251,4 +255,18 @@ ingredients
     margin-bottom: 0;
     min-width: 160px;
   }
+}
+
+#ingredient_qty.qty-input {
+  width: 75px;
+  margin: 20px;
+
+}
+
+.unit-input {
+  width: 60px;
+}
+
+.search-items {
+  width: 200px;
 }

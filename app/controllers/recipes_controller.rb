@@ -13,6 +13,7 @@ class RecipesController < ApplicationController
     @sides = Category.category_search('Sides')
     @bulk_recipes = Category.category_search('Bulk Recipe')
     @inactive = Category.category_search('InActive')
+    @recipe = Recipe.new
   end
 
   def new
@@ -47,7 +48,6 @@ class RecipesController < ApplicationController
         format.json { respond_with_bip(@recipe) }
       else
         format.html { flash[:notice] = "Could not update" }
-        format.json { render :json => @recipe.errors.full_messages, :status => :unprocessable_entity }
       end
     end
   end

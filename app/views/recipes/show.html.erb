@@ -34,7 +34,7 @@
           <th>Qty</th>
           <th>Unit</th>
           <th>Ingredient</th>
-          <th>Edit</th>
+          <!-- <th>Edit</th> -->
           <th>Delete</th>
 
         </tr>
@@ -43,38 +43,12 @@
             <td><p><%= i.qty %></p></td>
             <td><p><%= i.unit %></p></td>
             <td><p><%= i.name %></p></td>
-            <td><%= link_to '<i class="fa fa-pencil x4"></i>'.html_safe, edit_recipe_ingredient_path(@recipe, i) %></td>
+            <!-- <td><%#= link_to '<i class="fa fa-pencil x4"></i>'.html_safe, edit_recipe_ingredient_path(@recipe, i) %></td> -->
             <td><%= link_to '<i class="fa fa-trash x4"></i>'.html_safe, recipe_ingredient_path(@recipe, i), method: :delete, data: { confirm: "are you sure?"} %></td>
           <tr>
         <% end %>
       </table>
-
-    <%= simple_form_for [@recipe, @ingredient], html: {class: "form-horizontal"} do |f| %>
-<div class="ingredient">
-      <%= f.input :qty, placeholder: "qty in grams", input_html: { class: 'form-input form-control'} %>
-      <%= f.input :unit, placeholder: "g", input_html: { class: 'form-input form-control' } %>
-      <div class="ui-autocomplete-input">
-        <%= f.input :name, input_html: { class: 'form-input form-control search-term search-items', id: 'search-items' } %>
-      </div>
-      <%= f.input :calories, input_html: { class: 'form-input form-control calories-field' }, as: :string, as: :hidden %>
-      <%= f.input :total_fat, input_html: { class: 'form-input form-control total-fat-field' }, as: :string, as: :hidden %>
-      <%= f.input :saturated_fat, input_html: { class: 'form-input form-control saturated-fat-field' }, as: :string, as: :hidden %>
-      <%= f.input :trans_fat, input_html: { class: 'form-input form-control trans-fat-field' }, as: :string, as: :hidden %>
-      <%= f.input :cholesterol, input_html: { class: 'form-input form-control cholesterol-field' }, as: :string, as: :hidden %>
-      <%= f.input :sodium, input_html: { class: 'form-input form-control sodium-field' }, as: :string, as: :hidden %>
-      <%= f.input :total_carbs, input_html: { class: 'form-input form-control total-carbs-field' }, as: :string, as: :hidden %>
-      <%= f.input :dietary_fiber, input_html: { class: 'form-input form-control dietary-fiber-field' }, as: :string, as: :hidden %>
-      <%= f.input :sugars, input_html: { class: 'form-input form-control sugars-field' }, as: :string, as: :hidden %>
-      <%= f.input :protein, input_html: { class: 'form-input form-control protein-field' }, as: :string, as: :hidden %>
-      <%= f.input :vitamin_a, input_html: { class: 'form-input form-control vitamin-a-field' }, as: :string, as: :hidden %>
-      <%= f.input :vitamin_c, input_html: { class: 'form-input form-control vitamin-c-field' }, as: :string, as: :hidden %>
-      <%= f.input :calcium, input_html: { class: 'form-input form-control calcium-field' }, as: :string, as: :hidden %>
-      <%= f.input :iron, input_html: { class: 'form-input form-control iron-field' }, as: :string, as: :hidden %>
-      <%= f.input :nutritionix_id, input_html: { class: 'form-input form-control ingredient-id-field' }, as: :string, as: :hidden %>
-      <%= f.input :serving_weight, input_html: { class: 'form-input form-control serving-weight-field' }, as: :string, as: :hidden %>
-      <%= f.submit "Save Ingredient", class: "btn btn-primary"  %>
-    </div>
-    <% end %>
+        <%= render 'ingredient_fields' %>
     </div>
 
     <div class="col-md-6 directions">
@@ -87,10 +61,7 @@
           <hr>
           <% end %>
         </ol>
-        <%= simple_form_for [@recipe, @direction] do |f| %>
-          <%= f.input :instruction, label: "Directions", placeholder: "add directions here...", input_html: { class: 'form-input form-control' } %>
-          <%= f.submit "Save direction", class: "btn btn-primary" %>
-        <% end %>
+        <%= render 'direction_fields' %>
       </div>
     </div>
   </div>
