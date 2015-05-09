@@ -10,11 +10,11 @@
       <div class="tg">
         <%= @recipe.category.name %>
       </div>
-      <h1 class="recipe-title"><%= @recipe.title %></h1>
-      <p><%= @recipe.description %></p>
+      <h1 class="recipe-title"><%= best_in_place @recipe, :title, as: :input, :html_attrs => { :style => 'width:100%;' } %></h1>
+
+      <p><%= best_in_place @recipe, :description, as: :input, :html_attrs => { :style => 'width:100%;' } %></p>
 
       <br>
-      <%= link_to '<i class="fa fa-pencil x4"></i>'.html_safe, edit_recipe_path(@recipe) %>
       <%= link_to '<i class="fa fa-trash x4"></i>'.html_safe, recipe_path(@recipe), method: :delete, data: { confirm: "are you sure?"} %>
 
     </div>

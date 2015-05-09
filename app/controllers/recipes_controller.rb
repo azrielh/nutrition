@@ -41,11 +41,14 @@ class RecipesController < ApplicationController
   end
 
   def update
-    if @recipe.build_recipe(recipe_params)
-      redirect_to recipe_path(@recipe), notice: "Recipe Successfully updated"
-    else
-      flash[:notice] = "Could not update"
-      render :edit
+    respond_to do |format|
+      if @recipe.build_recipe(recipe_params)
+        format.html { redirect_to recipe_path(@recipe), notice: "Recipe Successfully updated" }
+        format.json { respond_with_bip(@recipe) }
+      else
+        format.html { flash[:notice] = "Could not update" }
+        format.json { render :json => @recipe.errors.full_messages, :status => :unprocessable_entity }
+      end
     end
   end
 

@@ -48,9 +48,9 @@ gem 'simple_form'
 gem 'cocoon'
 gem "quiet_assets"
 gem 'kaminari'
+gem 'best_in_place'
 
 # gem 'chosen-rails', '~> 1.4.1'
-
 # gem 'usda-nutrient-database', :git => 'git@github.com:jeffumich/usda-nutrient-database.git'
 
 group :development, :test do
