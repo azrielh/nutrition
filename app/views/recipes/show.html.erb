@@ -34,12 +34,17 @@
           <th>Qty</th>
           <th>Unit</th>
           <th>Ingredient</th>
+          <th>Edit</th>
+          <th>Delete</th>
+
         </tr>
         <% @recipe.ingredients.each do |i| %>
           <tr>
             <td><p><%= i.qty %></p></td>
             <td><p><%= i.unit %></p></td>
             <td><p><%= i.name %></p></td>
+            <td><%= link_to '<i class="fa fa-pencil x4"></i>'.html_safe, edit_recipe_ingredient_path(@recipe, i) %></td>
+            <td><%= link_to '<i class="fa fa-trash x4"></i>'.html_safe, recipe_ingredient_path(@recipe, i), method: :delete, data: { confirm: "are you sure?"} %></td>
           <tr>
         <% end %>
       </table>

@@ -28,6 +28,7 @@ class Recipe < ActiveRecord::Base
 
   def update_recipe
     ActiveRecord::Base.transaction do
+      set_zeros
       calc_weight
       calculate_data
       save ? self : false
@@ -52,19 +53,19 @@ class Recipe < ActiveRecord::Base
   private
 
   def calc_weight
-    self.total_weight = self.ingredients.group(:qty).count.keys.sum
+    self.total_weight = self.ingredients.sum(:qty)
   end
 
   def qty_ingredients
-    ingredients.group(:qty).count.keys.sum
+    ingredients.sum(:qty)
   end
 
   def calculate_value_g(value_type)
-    ingredients.group(value_type).count.keys.sum * qty_ingredients
+    ingredients.sum(value_type) * qty_ingredients
   end
 
   def calculate_value_mg(value_type)
-    ingredients.group(value_type).count.keys.sum * qty_ingredients
+    ingredients.sum(value_type) * qty_ingredients
   end
 
   def calculate_data
