@@ -9,7 +9,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div class="internal-pages">
   <%= render "/layouts/navbar" %>
 
   <% if flash[:notice] %>
@@ -19,7 +19,9 @@
   <% end %>
 
 
-<%= yield %>
+  <%= yield %>
+
+</div>
 
 </body>
 </html>

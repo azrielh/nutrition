@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150509043206) do
+ActiveRecord::Schema.define(version: 20150510203534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150509043206) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "recipe_id"
+    t.integer  "sort"
   end
 
   add_index "categories", ["recipe_id"], name: "index_categories_on_recipe_id", using: :btree
@@ -107,6 +108,7 @@ ActiveRecord::Schema.define(version: 20150509043206) do
     t.integer  "category_id"
     t.integer  "servings"
     t.float    "total_weight"
+    t.decimal  "price"
   end
 
   add_index "recipes", ["category_id"], name: "index_recipes_on_category_id", using: :btree
@@ -226,6 +228,7 @@ ActiveRecord::Schema.define(version: 20150509043206) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "rest_name"
   end
 
   add_foreign_key "categories", "recipes"

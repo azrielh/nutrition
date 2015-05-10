@@ -1,10 +1,17 @@
 <div class="each-recipe">
-  <i class="fa fa-bars x4"></i>
-  <%= link_to '<i class="fa fa-pencil x4"></i>'.html_safe, edit_recipe_path(r) %>
+  <!-- <i class="fa fa-bars x4"></i> -->
+  <div class="col-xs-1">
+  <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_recipe_path(r) %>
   <%= link_to '<i class="fa fa-trash x4"></i>'.html_safe, recipe_path(r), method: :delete, data: { confirm: "are you sure?"} %>
+  </div>
+  <div class="col-xs-11">
   <h2><%= link_to r.title, recipe_path(r) %></h2>
+  <% if (r.price != nil) %>
+  <h2>|</h2><span><h2><%= r.price.to_i %></h2></span>
+    <% end %>
   <p><%= link_to r.description %></p>
-  <%= link_to recipe_path(r) do %>
-    <%= image_tag r.image.url(:thumb), class: "list-img" %>
-  <% end %>
+  </div>
+  <%#= link_to recipe_path(r) do %>
+    <%#= image_tag r.image.url(:thumb), class: "list-img" %>
+  <%# end %>
 </div>

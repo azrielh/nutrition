@@ -1,18 +1,10 @@
 <div class="index-page index-background">
-  <div class="col-xs-2 left-bar">
 
-test stuff
-
-  </div>
-
-
-
-  <div class="col-xs-10">
+  <div class="col-xs-12">
     <%#= image_tag "caprese.png", class: "background-img" %>
-    <div class="container">
-      <h1>..........Restaurant Name</h1>
-      <h2>All Recipes</h2>
-
+    <div class="container list-all">
+      <h1><%= current_user.rest_name %></h1>
+      <div class="list-all-line"></div>
       <%= render '/recipes/show_recipes' %>
 
     </div>

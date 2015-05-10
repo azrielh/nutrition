@@ -2,10 +2,6 @@
 general
 -----------------------*/
 
-.section-header h2 {
-  color: red;
-  text-decoration: none;
-}
 
 
 .fa {
@@ -27,20 +23,19 @@ general
 all recipes index page
 -----------------------*/
 
-/* .each-recipe {
-  background-color: rgba(246, 246, 246, 0.48);
-  padding: 10px;
-  margin: 15px;
-  height: 70px;
-  border-radius: 40px;
-  border: 1px black solid;
-  box-shadow: 5px 5px 3px #888888;
-} */
-
 .section {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 40px;
+  margin: 20px;
   width: 500px;
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
+}
+
+.section-header {
+  color: grey;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 100;
 }
 
 .list-img {
@@ -57,24 +52,47 @@ all recipes index page
   background-color: blue;
 }
 
+.list-all {
+  h1 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 46px;
+  }
+  .list-all-line {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  .header-line {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+  }
+}
+
+
 .each-recipe {
 
   h2 {
     font-family: 'Droid Sans', sans-serif;
-    font-size: 16px;
+    font-size: 22px;
     font-weight: 100;
     display: inline;
+  }
+  span h2 {
+    font-size: 16px;
+    color: grey;
   }
   p {
     font-family: 'Helvetica Neue', sans-serif;
     font-weight: 100;
-    font-size: 14px;
+    font-size: 18px;
+    letter-spacing: 1px;
     /* display: inline; */
   }
   a {
     color: black;
     text-decoration: none;
-
+  }
+  i {
+    font-size: 16px;
+    color: rgba(138, 187, 87, 0.59);
   }
 }
 
@@ -82,14 +100,17 @@ left-bar {
   background-color: rgba(255, 0, 0, 0.5);
 }
 
-body {
+.internal-pages {
   z-index: -1;
   padding: 80px 0 0 0;
   margin: 0;
   background-attachment: fixed;
   /* background-image: url('caprese.png'); */
-  background-image: url('cured_proscuitto.png');
+  /* background-image: url('smokedreuben2.jpg'); */
+  background-image: url('cured_proscuitto2.png');
   background-size: cover;
+  min-height: 2000px;
+  height: 100%;
   }
 
 
@@ -136,6 +157,7 @@ nutritional table
   max-width: 450px;
   min-height: 465px;
   padding: 10px 8px;
+  background-color: rgba(255, 255, 255, 0.6);
   //float: right;
   .title {
     font-size: 34px;
@@ -312,4 +334,10 @@ ingredients
     margin-bottom: 0;
     min-width: 160px;
   }
+}
+
+.ingredient-directions {
+  background-color: rgba(255, 255, 255, 0.6);
+  margin-top: 30px;
+  min-height: 500px;
 }
