@@ -2,7 +2,7 @@
 
   <div style="width: 100%; height: 100vh;"
     data-vide-bg="<%= asset_path('video/NutritionApp_edit.mp4') %>" data-vide-options="loop: true, muted: true, position: 0% 0%" class="welcome-video">
-  <ul class="welcome-title">
+  <ul class="welcome-title navbar-right">
     <% if user_signed_in? %>
       <li>Welcome <%= current_user.full_name %></li>
       <li><%= link_to "Sign Out", sessions_path, method: :delete %></li>

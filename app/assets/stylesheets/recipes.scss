@@ -2,10 +2,6 @@
 general
 -----------------------*/
 
-body {
-  padding: 80px;
-}
-
 .section-header h2 {
   color: red;
   text-decoration: none;
@@ -86,7 +82,7 @@ left-bar {
   background-color: rgba(255, 0, 0, 0.5);
 }
 
-/* body {
+/* .internal-pages {
   z-index: -1;
   padding: 80px 0 0 0;
   margin: 0;
@@ -94,7 +90,8 @@ left-bar {
   background-image: url('caprese.png');
   background-image: url('cured_proscuitto.png');
   background-size: cover;
-  }
+  height: 100vh;
+}
  */
 
 /*-----------------------
@@ -300,6 +297,8 @@ directions
 
 #direction_instruction {
   margin: 26px;
+  position: relative;
+  left: 12px;
 }
 
 /*-----------------------
@@ -322,4 +321,22 @@ ingredients
     padding: 0px;
     margin: 0px;
   }
+}
+
+#search-items {
+  margin: 0px;
+  position: relative;
+  left: -25px;
+}
+
+#ingredient_unit {
+  margin: 0px;
+  position: relative;
+  left: -15px;
+}
+
+#ingredient_qty {
+  margin: 0px;
+  position: relative;
+  left: -10px;
 }
