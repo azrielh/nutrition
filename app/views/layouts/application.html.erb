@@ -10,6 +10,7 @@
 </head>
 <body>
   <div class="internal-pages">
+
     <%= render "/layouts/navbar" %>
 
     <% if flash[:notice] %>
@@ -18,9 +19,10 @@
       <div class="alert alert-danger"><%= flash[:alert] %></div>
     <% end %>
 
-    <%= yield %>
+  <%= yield %>
 
   </div>
+
 
 </body>
 </html>

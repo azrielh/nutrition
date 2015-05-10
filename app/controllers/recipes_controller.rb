@@ -24,8 +24,6 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = current_user.recipes.new recipe_params
-
-    # if @recipe.save
     if @recipe.build_recipe(recipe_params)
        redirect_to recipe_path(@recipe), notice: "Successfully Created"
      else
@@ -64,7 +62,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:title, :description, :image, :category_id, { ingredients_attributes: ingredient_params }, { directions_attributes: directions_params } )
+    params.require(:recipe).permit(:title, :description, :image, :price, :category_id, { ingredients_attributes: ingredient_params }, { directions_attributes: directions_params } )
   end
 
   def ingredient_params
