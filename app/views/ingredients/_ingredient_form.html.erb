@@ -1,5 +1,5 @@
-<%= simple_form_for [@recipe, @ingredient], html: {class: "form-inline form-horizontal"} do |f| %>
-<div class="ingredient">
+<%= simple_form_for [@recipe, @ingredient], remote: true, html: {class: "form-inline form-horizontal"} do |f| %>
+<div class="">
     <div class="col-xs-2">
       <%= f.input :qty, label: false, placeholder: "qty", input_html: { class: 'form-input form-control qty-input'} %>
     </div>

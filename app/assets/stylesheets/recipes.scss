@@ -2,6 +2,10 @@
 general
 -----------------------*/
 
+body {
+  padding: 80px;
+}
+
 .section-header h2 {
   color: red;
   text-decoration: none;
@@ -82,16 +86,16 @@ left-bar {
   background-color: rgba(255, 0, 0, 0.5);
 }
 
-body {
+/* body {
   z-index: -1;
   padding: 80px 0 0 0;
   margin: 0;
   background-attachment: fixed;
-  /* background-image: url('caprese.png'); */
+  background-image: url('caprese.png');
   background-image: url('cured_proscuitto.png');
   background-size: cover;
   }
-
+ */
 
 /*-----------------------
 recipe show page
@@ -301,15 +305,21 @@ directions
 /*-----------------------
 ingredients
 -----------------------*/
+
 .ingredients {
   h2 {
     font-size: 26px;
     background-color: #000;
     color: #fff;
     display: inline-block;
-    width: 30%;
+    width: 40%;
     padding: 3px 3px 3px 10px;
     margin-bottom: 0;
-    min-width: 160px;
+    min-width: 140px;
+  }
+  .ingredient-underline {
+    border-bottom: 3px #000 solid;
+    padding: 0px;
+    margin: 0px;
   }
 }

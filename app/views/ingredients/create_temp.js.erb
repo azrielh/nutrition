@@ -1,0 +1,11 @@
+<% if @ingredient.errors.any? %>
+  $(".ingredient_form").html("<%= j render "ingredients/ingredient_fields" %>");
+<% else %>
+  $(".ingredients").prepend("<%= j render partial: "/ingredients/ingredient", locals: {i: @ingredient} %>");
+  $("#ingredient_body").val("");
+  <%# this needs to be done because @answer is persisted in this scenario %>
+  <%# which means the form will be "update" instead of "create" %>
+  <% @ingredient = Ingredient.new %>
+  $(".ingredient_form").html("<%= j render "ingredients/ingredient_fields" %>");
+
+<% end %>

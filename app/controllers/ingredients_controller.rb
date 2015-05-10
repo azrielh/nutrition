@@ -24,7 +24,10 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.find params[:id]
     @ingredient.destroy
     recipe.update_recipe
-    redirect_to recipe_path(recipe), notice: "Successfully Deleted"
+    respond_to do |format|
+      format.html {redirect_to recipe_path(recipe), notice: "Ingredient Deleted"}
+      format.js {render}
+    end
   end
 
   private

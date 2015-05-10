@@ -1,0 +1,9 @@
+<div id="<%= dom_id(d) %>">
+  <div class="col-xs-10 each-direction">
+    <li><%= d.instruction %></li>
+  </div>
+  <div class="col-xs-2">
+    <%= link_to '<i class="fa fa-trash x3"></i>'.html_safe, recipe_direction_path(@recipe, d), method: :delete, data: { confirm: "are you sure?"}, remote: true %>
+  </div>
+  <hr>
+</div>
