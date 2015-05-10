@@ -15,6 +15,14 @@ class DirectionsController < ApplicationController
     end
   end
 
+  def destroy
+    recipe = Recipe.find params[:recipe_id]
+    @direction = Direction.find params[:id]
+    @direction.destroy
+    redirect_to recipe_path(recipe), notice: "Step deleted"
+  end
+
+
   private
 
   def direction_params

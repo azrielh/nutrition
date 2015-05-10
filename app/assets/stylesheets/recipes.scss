@@ -1,20 +1,15 @@
-// Place all the styles related to the recipes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/*-----------------------
+general
+-----------------------*/
 
 .section-header h2 {
   color: red;
   text-decoration: none;
 }
 
-.each-recipe a {
-  text-decoration: none;
-  color: black;
-  font-size: 25px;
-}
 
 .fa {
-  font-size: 25px;
+  font-size: 22px;
   color: black;
 }
 
@@ -28,12 +23,11 @@
   //top: -7px;
 }
 
-
 /*-----------------------
 all recipes index page
 -----------------------*/
 
-.each-recipe {
+/* .each-recipe {
   background-color: rgba(246, 246, 246, 0.48);
   padding: 10px;
   margin: 15px;
@@ -41,6 +35,12 @@ all recipes index page
   border-radius: 40px;
   border: 1px black solid;
   box-shadow: 5px 5px 3px #888888;
+} */
+
+.section {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 40px;
+  width: 500px;
 }
 
 .list-img {
@@ -53,23 +53,75 @@ all recipes index page
   margin-right: 40px;
 }
 
+.background-img {
+  background-color: blue;
+}
+
+.each-recipe {
+
+  h2 {
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 100;
+    display: inline;
+  }
+  p {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+    /* display: inline; */
+  }
+  a {
+    color: black;
+    text-decoration: none;
+
+  }
+}
+
+left-bar {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+body {
+  z-index: -1;
+  padding: 80px 0 0 0;
+  margin: 0;
+  background-attachment: fixed;
+  /* background-image: url('caprese.png'); */
+  background-image: url('cured_proscuitto.png');
+  background-size: cover;
+  }
+
+
 /*-----------------------
 recipe show page
 -----------------------*/
 
 .recipe-image {
   background-size: cover;
+  max-width: 530px;
   h1 {
     font-family: 'Helvetica-Neue', Arial, sans-serif;
   }
   p {
     font-family: 'Helvetica-Neue', Arial, sans-serif;
   }
+  .tooltip-inner {
+    border: solid 1px #ccc;
+    background-color: #006dcc;
+    font-size: 16px;
+  }
 }
 
-img {
+.img-recipe {
   box-shadow: 0px 0px 10px 0px;
   margin: 20px 0 20px 0;
+}
+
+.show-trash {
+  float: right;
+  position: relative;
+  top: 7px;
 }
 
 
@@ -84,7 +136,7 @@ nutritional table
   max-width: 450px;
   min-height: 465px;
   padding: 10px 8px;
-  float: right;
+  //float: right;
   .title {
     font-size: 34px;
     font-family: 'Archivo Black', Arial, sans-serif;
@@ -184,6 +236,7 @@ Nutritional Recommendations
 .nut-recommendation {
   background-color: #f8f7f7;
   min-height: 475px;
+  max-width: 485px;
   box-shadow: 0px 2px 5px #888888;
   h2 {
     font-family: 'Archivo Black', Arial, sans-serif;
@@ -209,7 +262,7 @@ recipe new page
 }
 
 .new-recipe-btn {
-
+  cursor: pointer;
 }
 
 /*-----------------------
@@ -235,11 +288,15 @@ directions
   .inner-directions {
   min-height: 300px;
   padding: 20px 10px 10px 10px;
-
-
   }
 }
+.each-direction {
+  border-bottom: 1px solid rgba(215, 215, 215, 0.8);
+}
 
+#direction_instruction {
+  margin: 26px;
+}
 
 /*-----------------------
 ingredients
@@ -255,18 +312,4 @@ ingredients
     margin-bottom: 0;
     min-width: 160px;
   }
-}
-
-#ingredient_qty.qty-input {
-  width: 75px;
-  margin: 20px;
-
-}
-
-.unit-input {
-  width: 60px;
-}
-
-.search-items {
-  width: 200px;
 }

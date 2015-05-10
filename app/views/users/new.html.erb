@@ -1,12 +1,13 @@
 <div class="container">
-  <div class="col-md-4 new-user">
+  <div class="col-xs-6 col-xs-offset-3">
+  <h1>Sign Up</h1>
   <%= simple_form_for @user, html: {class: "form-horizontal"} do |f| %>
     <%= f.input :first_name %>
     <%= f.input :last_name %>
     <%= f.input :email %>
     <%= f.input :password %>
     <%= f.input :password_confirmation %>
-    <%= f.submit "Create Account" %>
+    <%= f.submit "Create Account" , class: "btn btn-primary" %>
   <% end %>
   </div>
 </div>

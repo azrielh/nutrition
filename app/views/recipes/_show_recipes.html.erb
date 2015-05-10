@@ -1,9 +1,11 @@
 <div class="all-recipes">
-  <h2 class="section-header">Appetizer</h2>
-  <div class="appetizers">
-    <% @appetizers.each do |r| %>
-      <%= render "list_recipes", r: r %>
-    <% end %>
+  <div class="section">
+    <h2 class="section-header">Appetizer</h2>
+    <div class="appetizers">
+      <% @appetizers.each do |r| %>
+        <%= render "list_recipes", r: r %>
+      <% end %>
+    </div>
   </div>
 
   <h2 class="section-header">Entrée</h2>

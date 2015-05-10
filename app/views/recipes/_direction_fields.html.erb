@@ -1,4 +1,4 @@
 <%= simple_form_for [@recipe, @direction] do |f| %>
-  <%= f.input :instruction, label: "Directions", placeholder: "add directions here...", input_html: { class: 'form-input form-control' } %>
-  <%= f.submit "Save direction", class: "btn btn-primary" %>
+  <%= f.input :instruction, label: false, placeholder: "add directions here...", input_html: { class: 'form-input form-control' } %>
+  <%= f.submit "Add Step", class: "btn btn-primary" %>
 <% end %>
