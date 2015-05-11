@@ -4,7 +4,7 @@
     <%= f.input :qty, label: false, placeholder: "qty", input_html: { class: 'form-input form-control qty-input', :style=> 'width: 55px; padding: 3px; text-align: center'} %>
   </div>
   <div class="col-xs-2">
-    <%= f.input :unit, label: false, placeholder: "g", input_html: { class: 'form-input form-control unit-input', :style=> 'width: 30px; padding: 5px; text-align: center' } %>
+    <%= f.input :unit, collection: ["g", "oz"], label: false, placeholder: "g", input_html: { class: 'form-input form-control unit-input', :style=> 'width: 50px; padding: 5px; text-align: center' } %>
   </div>
   <div class="col-xs-5">
     <%= f.input :name, label: false, placeholder: "Search Ingredients", input_html: { class: 'form-input form-control search-term search-items', id: 'search-items', :style=> 'width: 190px; padding: 5px'  } %>

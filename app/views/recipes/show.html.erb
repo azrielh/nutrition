@@ -14,11 +14,8 @@
       <div data-toggle="tooltip" data-placement="bottom" title="Edit the title...">
         <h1><%= best_in_place @recipe, :title, as: :input, :html_attrs => { :style => 'width:100%;' } %></h1>
       </div>
-
       <p data-toggle="tooltip" data-placement="bottom" title="Edit the description..."><%= best_in_place @recipe, :description, as: :input, :html_attrs => { :style => 'width:100%;' } %></p>
-
       <br>
-
     </div>
     <div class="col-md-4 nut-recommendation">
       <%= render 'nutrition_recommendation' %>

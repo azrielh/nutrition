@@ -30,7 +30,7 @@ class Recipe < ActiveRecord::Base
     ActiveRecord::Base.transaction do
       set_zeros
       calc_weight
-      calculate_data
+      calc_it
       save ? self : false
     end
   end
@@ -41,7 +41,7 @@ class Recipe < ActiveRecord::Base
       save_or_update(recipe_params)
       set_zeros
       calc_weight
-      calculate_data
+      calc_it
       save ? self :false
     end
   end
@@ -52,39 +52,83 @@ class Recipe < ActiveRecord::Base
 
   private
 
+  def calc_it
+    # self.calc_weight = calc_weight
+    self.calories = calc_calorie
+    self.total_fat = calc_total_fat
+    self.saturated_fat = calc_sat_fat
+    self.trans_fat = calc_trans_fat
+    self.cholesterol = calc_cholesterol
+    self.sodium = calc_sodium
+    self.total_carbs = calc_total_carbs
+    self.dietary_fiber = calc_dietary_fiber
+    self.sugars = calc_sugars
+    self.protein = calc_protein
+    self.vitamin_a = calc_vitamin_a
+    self.vitamin_c = calc_vitamin_c
+    self.calcium = calc_calcium
+    self.iron = calc_iron
+  end
+
   def calc_weight
     self.total_weight = self.ingredients.sum(:qty)
   end
-
-  def qty_ingredients
-    ingredients.sum(:qty)
+  # this calculates the values correctly...
+  def calc_calorie
+    self.ingredients.map {|x| x.calories * x.qty }.sum
   end
 
-  def calculate_value_g(value_type)
-    ingredients.sum(value_type) * qty_ingredients
+  def calc_total_fat
+    self.ingredients.map {|x| x.total_fat * x.qty }.sum
   end
 
-  def calculate_value_mg(value_type)
-    ingredients.sum(value_type) * qty_ingredients
+  def calc_sat_fat
+    self.ingredients.map {|x| x.saturated_fat * x.qty }.sum
   end
 
-  def calculate_data
-    self.calories      = calculate_value_g(:calories)
-    self.total_fat     = calculate_value_g(:total_fat)
-    self.saturated_fat = calculate_value_g(:saturated_fat)
-    self.trans_fat     = calculate_value_g(:trans_fat)
-    self.cholesterol   = calculate_value_mg(:cholesterol)
-    self.sodium        = calculate_value_mg(:sodium)
-    self.total_carbs   = calculate_value_g(:total_carbs)
-    self.dietary_fiber = calculate_value_g(:dietary_fiber)
-    self.sugars        = calculate_value_g(:sugars)
-    self.protein       = calculate_value_g(:protein)
-    self.vitamin_a     = calculate_value_g(:vitamin_a)
-    self.vitamin_c     = calculate_value_g(:vitamin_c)
-    self.calcium       = calculate_value_g(:calcium)
-    self.iron          = calculate_value_g(:iron)
+  def calc_trans_fat
+    self.ingredients.map {|x| x.trans_fat * x.qty }.sum
   end
 
+  def calc_cholesterol
+    self.ingredients.map {|x| x.cholesterol * x.qty }.sum * 1000
+  end
+
+  def calc_sodium
+    self.ingredients.map {|x| x.sodium * x.qty }.sum * 1000
+  end
+
+  def calc_total_carbs
+    self.ingredients.map {|x| x.total_carbs * x.qty }.sum
+  end
+
+  def calc_dietary_fiber
+    self.ingredients.map {|x| x.dietary_fiber * x.qty }.sum
+  end
+
+  def calc_sugars
+    self.ingredients.map {|x| x.sugars * x.qty }.sum
+  end
+
+  def calc_protein
+    self.ingredients.map {|x| x.protein * x.qty }.sum
+  end
+
+  def calc_vitamin_a
+    self.ingredients.map {|x| x.vitamin_a * x.qty }.sum
+  end
+
+  def calc_vitamin_c
+    self.ingredients.map {|x| x.vitamin_c * x.qty }.sum
+  end
+
+  def calc_calcium
+    self.ingredients.map {|x| x.calcium * x.qty }.sum
+  end
+
+  def calc_iron
+    self.ingredients.map {|x| x.iron * x.qty }.sum
+  end
 
   def set_zeros
     self.calories ||= 0
