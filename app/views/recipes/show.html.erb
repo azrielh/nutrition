@@ -26,6 +26,11 @@
   </div>
 
   <div class="container ingredient-directions">
+      <div class="col-xs-12">
+        <div class="col-xs-4 servings-number">
+          <p data-toggle="tooltip" data-placement="bottom" title="Number of servings per recipe...">Servings per recipe: <%= best_in_place @recipe, :servings, as: :input, :html_attrs => { :style => 'width:100%;' } %></p>
+        </div>
+      </div>
     <div class="col-md-6 ingredients">
       <h2>Ingredients</h2>
       <table class="table table-striped table-hover">

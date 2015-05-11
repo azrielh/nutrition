@@ -10,8 +10,8 @@
     <%= f.input :name, label: false, placeholder: "Search Ingredients", input_html: { class: 'form-input form-control search-term search-items', id: 'search-items', :style=> 'width: 190px; padding: 5px'  } %>
   </div>
 
-  <%= f.input :calories, input_html: { class: 'form-input form-control calories-field' }, as: :string %>
-  <%= f.input :total_fat, input_html: { class: 'form-input form-control total-fat-field' }, as: :string %>
+  <%= f.input :calories, input_html: { class: 'form-input form-control calories-field' }, as: :string, as: :hidden %>
+  <%= f.input :total_fat, input_html: { class: 'form-input form-control total-fat-field' }, as: :string, as: :hidden %>
   <%= f.input :saturated_fat, input_html: { class: 'form-input form-control saturated-fat-field' }, as: :string, as: :hidden %>
   <%= f.input :trans_fat, input_html: { class: 'form-input form-control trans-fat-field' }, as: :string, as: :hidden %>
   <%= f.input :cholesterol, input_html: { class: 'form-input form-control cholesterol-field' }, as: :string, as: :hidden %>
@@ -25,7 +25,7 @@
   <%= f.input :calcium, input_html: { class: 'form-input form-control calcium-field' }, as: :string, as: :hidden %>
   <%= f.input :iron, input_html: { class: 'form-input form-control iron-field' }, as: :string, as: :hidden %>
   <%= f.input :nutritionix_id, input_html: { class: 'form-input form-control ingredient-id-field' }, as: :string, as: :hidden %>
-  <%= f.input :serving_weight, input_html: { class: 'form-input form-control serving-weight-field' }, as: :string %>
+  <%= f.input :serving_weight, input_html: { class: 'form-input form-control serving-weight-field' }, as: :string, as: :hidden %>
   <div class="col-xs-3">
     <%= f.submit "Add", class: "btn btn-primary"  %>
   </div>

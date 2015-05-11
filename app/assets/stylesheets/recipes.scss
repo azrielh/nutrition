@@ -19,6 +19,21 @@ general
   //top: -7px;
 }
 
+h1, h2, h3, h4 {
+  font-family: 'Helvetica Neue', sans-serif;
+
+}
+
+p {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+}
+
+li, i {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+}
+
 /*-----------------------
 all recipes index page
 -----------------------*/
@@ -233,6 +248,9 @@ nutritional table
       padding-left: 17px;
     }
   }
+  .cholesterol {
+    font-size: 13px;
+  }
   .protein {
     font-size: 13px;
   }
@@ -249,6 +267,9 @@ nutritional table
     display: block;
     float: right;
   }
+  .trans {
+    font-style: italic;
+  }
 }
 
 /*-----------------------
@@ -262,13 +283,14 @@ Nutritional Analysis
   box-shadow: 0px 2px 5px #888888;
   h2 {
     font-family: 'Archivo Black', Arial, sans-serif;
-    font-size: 28px;
+    font-size: 34px;
   }
   h4 {
     line-height: 12px;
     font-weight: 400;
   }
   p {
+    font-size: 14px;
     line-height: 12px;
     font-weight: 200;
   }
@@ -324,6 +346,7 @@ directions
 }
 .each-direction {
   border-bottom: 1px solid rgba(215, 215, 215, 0.8);
+  padding: 20px;
 }
 
 #direction_instruction {
@@ -351,4 +374,5 @@ ingredients
   margin-top: 30px;
   min-height: 500px;
   box-shadow: 0px 2px 5px #888888;
+  padding: 30px 0;
 }

@@ -5,7 +5,8 @@
         <%= f.input :title, placeholder: "Add recipe title", class: "form-control title-form" %>
         <%= f.input :description, placeholder: "Write a recipe description", class: "form-control description-form" %>
         <%= f.input :image, class: "form-control" %>
-        <%= f.input :price, placeholder: "$$", as: :decimal, input_html: { class: 'form-input form-control unit-input', :style=> 'width: 60px; padding: 5px; text-align: center' } %>
+        <%= f.input :servings, label: "Servings per recipe", input_html: { class: 'form-input form-control unit-input', :style=> 'width: 60px; padding: 5px; text-align: center', min: "1" , value: 1 } %>
+        <%= f.input :price, placeholder: "$$$", as: :decimal, input_html: { class: 'form-input form-control unit-input', :style=> 'width: 60px; padding: 5px; text-align: center' } %>
         <%= f.association :category, as: :select, collection: Category.order(:sort) %>
     </div>
     <div class="modal-footer">

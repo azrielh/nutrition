@@ -86,4 +86,54 @@ $(document).ready(function() {
     $('[data-toggle="tooltip"]').tooltip()
   });
 
+  var totalFat = $('.total-fat-no').html();
+  var totalFatDV = $('.dv-total-fat').html();
+  var calories = $('.calories-no').html();
+  var caloriesFat = $('.calories-fat-no').html();
+  var saturatedFat = $('.sat-fat-no').html();
+  var saturatedFatDV = $('.dv-sat-fat').html();
+  var transFat = $('.trans-fat-no').html();
+  var cholesterol = $('.cholesterol-no').html();
+  var cholesterolDV = $('.dv-cholesterol').html();
+  var sodium = $('.sodium-no').html();
+  var sodiumDV = $('.dv-sodium').html();
+  var totalCarbs = $('.total-carbs-no').html();
+  var totalCarbsDV = $('.dv-total-carbs').html();
+  var fiber = $('.fiber-no').html();
+  var fiberDV = $('.dv-fiber').html();
+  var sugar = $('.sugar-no').html();
+  var sugar = $('.sugar-no').html();
+  var protein = $('.protein-no').html();
+  var vitaminA = $('.vit-a-no').html();
+  var vitaminC = $('.vit-c-no').html();
+  var calcium = $('.calcium-no').html();
+  var iron = $('.iron-no').html();
+
+  $('.no-val').on('change', function(){
+    var servings = $('.no-val').val();
+    $('.total-fat-no').html(servings*totalFat);
+    $('.dv-total-fat').html(servings*totalFatDV);
+    $('.calories-no').html(servings*calories);
+    $('.calories-fat-no').html(servings*caloriesFat);
+    $('.sat-fat-no').html(servings*saturatedFat);
+    $('.dv-sat-fat').html(servings*saturatedFatDV);
+    $('.trans-fat-no').html(servings*transFat);
+    $('.cholesterol-no').html(servings*cholesterol);
+    $('.dv-cholesterol').html(servings*cholesterolDV);
+    $('.sodium-no').html(servings*sodium);
+    $('.dv-sodium').html(servings*sodiumDV);
+    $('.total-carbs-no').html(servings*totalCarbs);
+    $('.dv-total-carbs').html(servings*totalCarbsDV);
+    $('.fiber-no').html(servings*fiber);
+    $('.dv-fiber').html(servings*fiberDV);
+    $('.sugar-no').html(servings*sugar);
+    $('.protein-no').html(servings*protein);
+    $('.vit-a-no').html(servings*vitaminA);
+    $('.vit-c-no').html(servings*vitaminC);
+    $('.calcium-no').html(servings*calcium);
+    $('.iron-no').html(servings*iron);
+
+
+  })
+
 });

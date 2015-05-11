@@ -145,6 +145,7 @@ class Recipe < ActiveRecord::Base
     self.vitamin_c ||= 0
     self.calcium ||= 0
     self.iron ||= 0
+    self.servings ||= 1
   end
 
 
