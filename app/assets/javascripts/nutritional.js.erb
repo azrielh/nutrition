@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    
+
   var totalFat = $('.total-fat-no').html();
   var totalFatDV = $('.dv-total-fat').html();
   var calories = $('.calories-no').html();
@@ -23,7 +23,7 @@ $(document).ready(function(){
   var calcium = $('.calcium-no').html();
   var iron = $('.iron-no').html();
 
-  $('.no-val').on('change', function(){
+  $('.nut-table').on('change', '.no-val', function(){
     var servings = $('.no-val').val();
     $('.total-fat-no').html(servings*totalFat);
     $('.dv-total-fat').html(servings*totalFatDV);
