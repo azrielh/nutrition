@@ -3,13 +3,14 @@ class IngredientsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    recipe = Recipe.find params[:recipe_id]
-    @ingredient = recipe.ingredients.new ingredient_params
+    @recipe = Recipe.find params[:recipe_id]
+    @ingredient = @recipe.ingredients.new ingredient_params
 
     respond_to do |format|
       if @ingredient.save
-        recipe.update_recipe
-        format.html { redirect_to recipe_path(recipe)}
+        @recipe.update_recipe
+        # format.html { render partial: "recipes/nutritional_table", locals: { recipe: @recipe} }
+        format.html { redirect_to recipe_path(@recipe) }
         format.js { render }
       else
         format.html { render "recipe/show" }
@@ -24,7 +25,10 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.find params[:id]
     @ingredient.destroy
     recipe.update_recipe
-    redirect_to recipe_path(recipe), notice: "Successfully Deleted"
+    respond_to do |format|
+      format.html { redirect_to recipe_path(recipe), notice: "Successfully Deleted" }
+      format.js { render }
+    end
   end
 
   private

@@ -2,7 +2,8 @@
   <div class="container">
     <div class="col-md-4 recipe-image">
       <%= link_to "Back", recipes_path, class: "btn btn-default" %>
-      <%= link_to '<i class="fa fa-trash x4"></i>'.html_safe, recipe_path(@recipe), method: :delete, data: { confirm: "are you sure?"}, class: "show-trash" %>
+      <%= link_to '<i class="fa fa-trash x4"></i>'.html_safe, recipe_path(@recipe), method: :delete, data: { confirm: "are you sure?"}, class: "show-icon" %>
+      <%= link_to '<i class="fa fa-pencil x4"></i>'.html_safe, edit_recipe_path(@recipe), class: "show-icon" %>
       <% if @recipe.image.url(:large).nil? %>
         <h3>No Image Provided</h3>
       <% else %>
@@ -20,7 +21,7 @@
     <div class="col-md-4 nut-recommendation">
       <%= render 'nutrition_recommendation' %>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 nut-table">
       <%= render 'nutritional_table' %>
     </div>
   </div>
@@ -42,14 +43,8 @@
           <th>Delete</th>
 
         </tr>
-        <% @recipe.ingredients.each do |i| %>
-          <tr>
-            <td><p><%= i.qty %></p></td>
-            <td><p><%= i.unit %></p></td>
-            <td><p><%= i.name %></p></td>
-            <!-- <td><%#= link_to '<i class="fa fa-pencil x4"></i>'.html_safe, edit_recipe_ingredient_path(@recipe, i) %></td> -->
-            <td><%= link_to '<i class="fa fa-trash x3"></i>'.html_safe, recipe_ingredient_path(@recipe, i), method: :delete, data: { confirm: "are you sure?"} %></td>
-          <tr>
+        <% @recipe.ingredients.each do |ingredient| %>
+          <%= render partial: 'ingredients/ingredients', locals: { ingredient: ingredient } %>
         <% end %>
       </table>
         <%= render '/ingredients/ingredient_fields' %>
@@ -60,14 +55,8 @@
       <div class="direction-underline"></div>
       <div class="inner-directions">
         <ol>
-          <% @recipe.directions.order(:created_at).each do |d| %>
-            <div class="col-xs-10 each-direction">
-              <li><%= d.instruction %></li>
-            </div>
-            <div class="col-xs-2">
-              <%= link_to '<i class="fa fa-trash x3"></i>'.html_safe, recipe_direction_path(@recipe, d), method: :delete, data: { confirm: "are you sure?"} %>
-            </div>
-          <hr>
+          <% @recipe.directions.order(:created_at).each do |direction| %>
+            <%= render partial: 'directions/directions', locals: { direction: direction } %>
           <% end %>
         </ol>
         <div class="col-md-10">

@@ -24,10 +24,12 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = current_user.recipes.new recipe_params
-    if @recipe.build_recipe(recipe_params)
-       redirect_to recipe_path(@recipe), notice: "Successfully Created"
-     else
-       render :new
+    respond_to do |format|
+      if @recipe.build_recipe(recipe_params)
+         format.html { redirect_to recipe_path(@recipe), notice: "Successfully Created" }
+       else
+         format.html { render :new }
+       end
      end
   end
 

@@ -49,6 +49,7 @@ gem 'cocoon'
 gem "quiet_assets"
 gem 'kaminari'
 gem 'best_in_place'
+gem 'filterrific', '~> 2.0.5'
 
 # gem 'chosen-rails', '~> 1.4.1'
 # gem 'usda-nutrient-database', :git => 'git@github.com:jeffumich/usda-nutrient-database.git'

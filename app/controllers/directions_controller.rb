@@ -19,7 +19,11 @@ class DirectionsController < ApplicationController
     recipe = Recipe.find params[:recipe_id]
     @direction = Direction.find params[:id]
     @direction.destroy
-    redirect_to recipe_path(recipe), notice: "Step deleted"
+    respond_to do |format|
+      format.html { redirect_to recipe_path(recipe), notice: "Step deleted" }
+      format.js { render }
+    end
+    
   end
 
 

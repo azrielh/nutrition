@@ -1,0 +1,9 @@
+<div id="<%= dom_id(direction) %>">
+  <div class="col-xs-10 each-direction">
+    <li><%= direction.instruction %></li>
+  </div>
+  <div class="col-xs-2">
+    <%= link_to '<i class="fa fa-trash x3"></i>'.html_safe, recipe_direction_path(@recipe, direction), method: :delete, remote: true %>
+  </div>
+  <hr>
+</div>
