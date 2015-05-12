@@ -5,7 +5,9 @@
   <%= link_to '<i class="fa fa-trash x4"></i>'.html_safe, recipe_path(r), method: :delete, data: { confirm: "are you sure?"} %>
   </div>
   <div class="col-xs-11">
-  <h2><%= link_to r.title, recipe_path(r) %></h2>
+  <div class="title">
+    <h2 class="recipe-title"><%= link_to r.title, recipe_path(r) %></h2>
+  </div>
   <% if (r.price != nil) %>
   <h2>|</h2><span><h2><%= r.price.to_i %></h2></span>
     <% end %>

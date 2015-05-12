@@ -40,9 +40,8 @@ all recipes index page
 
 .section {
   background-color: rgba(255, 255, 255, 0.8);
-  padding: 40px;
-  margin: 20px;
-  width: 500px;
+  padding: 10px 15px 10px 20px;
+  margin: 10px;
   box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
 }
 
@@ -67,20 +66,10 @@ all recipes index page
   background-color: blue;
 }
 
-.list-all {
-  h1 {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 46px;
-  }
-  .list-all-line {
-    border: 1px solid rgba(0, 0, 0, 0.2);
-  }
-  .header-line {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    margin: 20px 0;
-  }
+.header-line {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin: 20px 0;
 }
-
 
 .each-recipe {
 
@@ -109,6 +98,15 @@ all recipes index page
     font-size: 16px;
     color: rgba(138, 187, 87, 0.59);
   }
+  .title {
+    display: inline-block;
+  }
+}
+.filter-form {
+  position:relative;
+  display: inline-block;
+  float: right;
+  top: 20px;
 }
 
 left-bar {
@@ -126,7 +124,7 @@ left-bar {
   background-size: cover;
   min-height: 2000px;
   height: 100%;
-  }
+}
 
 
 /*-----------------------

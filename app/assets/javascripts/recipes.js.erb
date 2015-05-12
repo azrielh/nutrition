@@ -85,8 +85,15 @@ $(document).ready(function() {
     $('[data-toggle="tooltip"]').tooltip()
   });
 
-  $.ajax({
 
-  })
+  $('#filter-library').on("keyup", function(e){
+    var searchTerm = $('#filter-library').val();
+    if(e.keyCode == 8) {
+    $(".title:not(:contains("+searchTerm+"))").parent().parent().fadeOut();
+    $(".title:contains("+searchTerm+")").parent().parent().fadeIn();
+    } else {
+    $(".title:not(:contains("+searchTerm+"))").parent().parent().fadeOut();
+    }
+  });
 
 });
