@@ -12,19 +12,7 @@ class Recipe < ActiveRecord::Base
   #has_many :ingredients, through: :inclusions
   has_many :ingredients, dependent: :destroy
 
-  accepts_nested_attributes_for :ingredients, reject_if: lambda {|x|
-                                              x[:qty].blank? && x[:name].blank? },
-                                              allow_destroy: true
-
-  accepts_nested_attributes_for :directions, reject_if: lambda {|x|
-                                              x[:instruction].blank? },
-                                              allow_destroy: true
-
   mount_uploader :image, ImageUploader
-
-  # before_save :set_zeros
-  # before_save :calculate_data
-  # before_save :calc_weight
 
   def update_recipe
     ActiveRecord::Base.transaction do
@@ -53,7 +41,6 @@ class Recipe < ActiveRecord::Base
   private
 
   def calc_it
-    # self.calc_weight = calc_weight
     self.calories = calc_calorie
     self.total_fat = calc_total_fat
     self.saturated_fat = calc_sat_fat

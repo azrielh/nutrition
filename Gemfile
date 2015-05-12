@@ -51,6 +51,8 @@ gem 'kaminari'
 gem 'best_in_place'
 gem 'filterrific', '~> 2.0.5'
 
+gem 'rails-erd'
+
 # gem 'chosen-rails', '~> 1.4.1'
 # gem 'usda-nutrient-database', :git => 'git@github.com:jeffumich/usda-nutrient-database.git'
 

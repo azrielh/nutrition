@@ -18,8 +18,10 @@
       <ul class="nav navbar-nav">
         <li><%= link_to "All Recipes", recipes_path %></li>
         <!-- Button trigger modal -->
-        <li> <a type="button" class="new-recipe-btn" data-toggle="modal" data-target="#myModal">
+        <% if user_signed_in? %>
+          <li> <a type="button" class="new-recipe-btn" data-toggle="modal" data-target="#myModal">
           New Recipe</a></li>
+        <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
@@ -33,6 +35,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
 <% if user_signed_in? %>
 
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

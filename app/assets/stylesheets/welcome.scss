@@ -3,48 +3,52 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .welcome {
-  position: relative;
-  top: 0px;
-  left: 0px;
-  background-color: rgba(0, 0, 0, 0.1);
-  .welcome-title {
-    position: absolute;
-    color: white;
-    font-size: 20px;
-    li {
-      display: inline-block;
-      z-index: 1000;
-    }
-  }
+  position: absolute;
   .welcome-message {
-    position: absolute;
-    margin: 0 auto;
-    top: 50px;
-    left: 40%;
-    background-color: rgba(255, 255, 255, 0.3);
-    padding: 50px;
-    border-top: 1px #fff solid;
-    border-bottom: 1px #fff solid;
-    border-left: 1px #fff solid;
-    box-shadow: 0px 0px 10px 0px;
-    text-shadow: 0px 2px 3px rgba(0,0,0,0.5);
+    position: relative;
+    top: 30%;
     h2 {
-      //position: absolute;
-      font-size: 80px;
+      font-size: 5.5em;
       color: #fff;
-      top: 50px;
-      left: auto;
-      width: 100%;
       font-family: 'Archivo Black', Arial, sans-serif;
+      text-align: center;
+    }
+    h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      color: #fff;
+      font-size: 1.5em;
+      text-align: center;
+      line-height: 1em;
     }
   }
-}
-
-.welcome-video {
-
-}
-.navbar {
-  li.name {
-    color: grey;
+  .welcome-note {
+    margin: 30px 0 50px 0;
+    /* background-color: rgba(255, 255, 255, 0.5); */
+    /* padding: 20px; */
+    border-radius: 10px;
   }
+}
+
+.clr-btn {
+  position: relative;
+  left: 20px;
+  border: #fff solid 1px;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 20px;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.navbar.navbar-default.navbar-inverse.navbar-fixed-top.transparent {
+   background: rgba(0,0,0,0.3);
+   border: none;
+   a {
+     color: white;
+   }
+}
+.navbar-brand {
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 22px;
+  font-weight: bold;
 }
