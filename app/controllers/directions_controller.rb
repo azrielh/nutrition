@@ -1,12 +1,12 @@
 class DirectionsController < ApplicationController
 
   def create
-    recipe = Recipe.find params[:recipe_id]
-    @direction = recipe.directions.new direction_params
+    @recipe = Recipe.find params[:recipe_id]
+    @direction = @recipe.directions.new direction_params
 
     respond_to do |format|
       if @direction.save
-        format.html { redirect_to recipe_path(recipe)}
+        format.html { redirect_to recipe_path(@recipe)}
         format.js { render }
       else
         format.html { render "recipe/show" }
@@ -23,7 +23,7 @@ class DirectionsController < ApplicationController
       format.html { redirect_to recipe_path(recipe), notice: "Step deleted" }
       format.js { render }
     end
-    
+
   end
 
 

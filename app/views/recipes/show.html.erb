@@ -35,32 +35,39 @@
     <div class="col-md-6 ingredients">
       <h2>Ingredients</h2>
       <table class="table table-striped table-hover">
+        <tbody class="each-ingredient">
         <tr>
           <th>Qty</th>
           <th>Unit</th>
           <th>Ingredient</th>
           <!-- <th>Edit</th> -->
           <th>Delete</th>
-
         </tr>
-        <% @recipe.ingredients.each do |ingredient| %>
-          <%= render partial: 'ingredients/ingredients', locals: { ingredient: ingredient } %>
-        <% end %>
+          <% @recipe.ingredients.each do |ingredient| %>
+            <%= render partial: 'ingredients/ingredients', locals: { ingredient: ingredient } %>
+          <% end %>
+        </tbody>
       </table>
+      <div class="ingredient-form">
         <%= render '/ingredients/ingredient_fields' %>
+      </div>
     </div>
 
     <div class="col-md-6 directions">
       <h2>Directions</h2>
       <div class="direction-underline"></div>
       <div class="inner-directions">
-        <ol>
-          <% @recipe.directions.order(:created_at).each do |direction| %>
-            <%= render partial: 'directions/directions', locals: { direction: direction } %>
-          <% end %>
-        </ol>
+          <ol>
+            <div class="each-direction">
+              <% @recipe.directions.order(:created_at).each do |direction| %>
+                <%= render partial: 'directions/directions', locals: { direction: direction } %>
+              <% end %>
+            </div>
+          </ol>
         <div class="col-md-10">
-          <%= render 'direction_fields' %>
+          <div class="direction_form">
+            <%= render 'directions/direction_fields' %>
+          </div>
         </div>
       </div>
     </div>

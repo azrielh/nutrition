@@ -1,0 +1,6 @@
+<% if @direction.errors.any? %>
+  $(".direction_form").html("<%= j render "directions/direction_fields" %>");
+<% else %>
+  $(".each-direction").append("<%= j render partial: "/directions/directions", locals: { direction: @direction } %>");
+  $('#direction_instruction').val("");
+<% end %>

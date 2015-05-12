@@ -18,8 +18,8 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    @recipe.ingredients.build
-    @recipe.directions.build
+    # @recipe.ingredients.build
+    # @recipe.directions.build
   end
 
   def create

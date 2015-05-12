@@ -21,12 +21,12 @@ class IngredientsController < ApplicationController
   end
 
   def destroy
-    recipe = Recipe.find params[:recipe_id]
+    @recipe = Recipe.find params[:recipe_id]
     @ingredient = Ingredient.find params[:id]
     @ingredient.destroy
-    recipe.update_recipe
+    @recipe.update_recipe
     respond_to do |format|
-      format.html { redirect_to recipe_path(recipe), notice: "Successfully Deleted" }
+      format.html { redirect_to recipe_path(@recipe), notice: "Successfully Deleted" }
       format.js { render }
     end
   end

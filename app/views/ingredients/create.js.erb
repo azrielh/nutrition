@@ -1,3 +1,13 @@
-$('.nut-table').html("<%= j render 'recipes/nutritional_table' %>");
-$('.nut-recommendation').html("<%= j render 'recipes/nutritional_recommendation' %>");
-$('')
+<% if @ingredient.errors.any? %>
+  $(".ingredient-form").html("<%= j render "ingredients/ingredient_fields" %>");
+<% else %>
+  $(".each-ingredient").append("<%= j render partial: "ingredients/ingredients", locals: {ingredient: @ingredient} %>");
+  $('#ingredient_qty').val("");
+  $('#ingredient_unit').val("");
+  $('#search-items').val("");
+  $('.nut-table').fadeOut(300, function(){
+    $('.nut-table').html("<%= j render 'recipes/nutritional_table' %>");
+    $('.nut-table').fadeIn(300);
+  });
+  $('.nut-recommendation').html("<%= j render 'recipes/nutrition_recommendation' %>");
+<% end %>
