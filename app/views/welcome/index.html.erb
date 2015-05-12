@@ -15,7 +15,7 @@
             <span class="icon-bar"></span>
           </button>
           <div class="navbar-header">
-            <%= link_to "Nutrilabel", recipes_path, class: "navbar-brand" %>
+            <%= link_to "Nutrilabel", root_path, class: "navbar-brand" %>
           </div>
         </div>
 
@@ -24,10 +24,11 @@
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
               <li> <a class="name">Welcome <%= current_user.full_name %></a></li>
-              <li><%= link_to "Sign Out", sessions_path, method: :delete %></li>
+              <li><%= link_to "Sign Out", sessions_path, method: :delete, class: "signout" %></li>
             <% else %>
-              <li><%= link_to "Restaurant Sign Up", new_user_path %></li>
-              <li><%= link_to "Sign In", new_session_path %></li>
+              <li> <a type="button" class="sign-up-btn" data-toggle="modal" data-target="#signupModal">
+              Restaurant Sign Up</a></li>
+              <li> <a type="button" class="sign-in-btn" data-toggle="modal" data-target="#signinModal">Sign In</a></li>
             <% end %>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -43,11 +44,34 @@
         </div>
         <div class="container col-xs-offset-2">
         <%= link_to "Learn More", recipes_path, class: "clr-btn" %>
-        <%= link_to "Sign Up", new_user_path, class: "clr-btn" %>
+        <a type="button" class="clr-btn" data-toggle="modal" data-target="#signupModal">Sign Up</a>
         </div>
       </div>
     </div>
+  </div>
 
+  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+        </div>
+          <%= render '/users/signup' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+        </div>
+          <%= render '/sessions/new' %>
+      </div>
+    </div>
   </div>
 
 </div>

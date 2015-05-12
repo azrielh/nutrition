@@ -26,7 +26,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li> <a class="name">Welcome <%= current_user.full_name %></a></li>
-          <li><%= link_to "Sign Out", sessions_path, method: :delete %></li>
+          <li><%= link_to "Sign Out", sessions_path, method: :delete, class: "signout" %></li>
         <% else %>
           <li><%= link_to "Sign In", new_session_path %></li>
           <li><%= link_to "Sign Up", new_user_path %></li>
@@ -37,7 +37,6 @@
 </nav>
 
 <% if user_signed_in? %>
-
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -50,3 +49,9 @@
     </div>
   </div>
 <% end %>
+
+<nav class="navbar navbar-default navbar-fixed-bottom navbar-inverse transparent">
+  <div class="container">
+    ...
+  </div>
+</nav>
