@@ -8,8 +8,7 @@ class IngredientsController < ApplicationController
 
     respond_to do |format|
       if @ingredient.save
-        @recipe.update_recipe
-        # format.html { render partial: "recipes/nutritional_table", locals: { recipe: @recipe} }
+        @recipe.update_recipe_ingredients
         format.html { redirect_to recipe_path(@recipe) }
         format.js { render }
       else

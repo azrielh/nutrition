@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      redirect_to recipes_path, notice: "Successfully Created"
+      session[:user_id] = @user.id
+      redirect_to recipes_path
     else
       render :new
     end

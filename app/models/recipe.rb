@@ -8,13 +8,11 @@ class Recipe < ActiveRecord::Base
   belongs_to :category
 
   has_many :directions, dependent: :destroy
-  #has_many :inclusions, dependent: :destroy
-  #has_many :ingredients, through: :inclusions
   has_many :ingredients, dependent: :destroy
 
   mount_uploader :image, ImageUploader
 
-  def update_recipe
+  def update_recipe_ingredients
     ActiveRecord::Base.transaction do
       set_zeros
       calc_weight
@@ -30,12 +28,12 @@ class Recipe < ActiveRecord::Base
       set_zeros
       calc_weight
       calc_it
-      save ? self :false
+      save ? self : false
     end
   end
 
   def save_or_update(data)
-    persisted? ? update!(data) : save!
+    persisted? ? update(data) : save
   end
 
   private
@@ -134,10 +132,5 @@ class Recipe < ActiveRecord::Base
     self.iron ||= 0
     self.servings ||= 1
   end
-
-
-  #def set_defaults
-  #  self.image ||= "/app/assets/images/default_image.png"
-  #end
 
 end
