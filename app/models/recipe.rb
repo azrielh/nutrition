@@ -15,6 +15,7 @@ class Recipe < ActiveRecord::Base
   def update_recipe_ingredients
     ActiveRecord::Base.transaction do
       set_zeros
+      conversion
       calc_weight
       calc_it
       save ? self : false
@@ -37,6 +38,13 @@ class Recipe < ActiveRecord::Base
   end
 
   private
+
+  def conversion
+    ingredient = ingredients.last
+    if ingredient.unit == "oz"
+      ingredient.update!(qty: ingredient.qty * 28.35, unit: "g")  
+    end
+  end
 
   def calc_it
     self.calories = calc_calorie
