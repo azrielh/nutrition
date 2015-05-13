@@ -7,10 +7,10 @@ class RecipesController < ApplicationController
   def index
     @appetizers = Category.category_search(Category::APPETIZER)
     @entrees = Category.category_search(Category::ENTREE)
-    @desserts = Category.category_search(DESSERT)
-    @sides = Category.category_search(SIDES)
-    @bulk_recipes = Category.category_search(BULK_RECIPES)
-    @inactive = Category.category_search(INACTIVE)
+    @desserts = Category.category_search(Category::DESSERT)
+    @sides = Category.category_search(Category::SIDES)
+    @bulk_recipes = Category.category_search(Category::BULK_RECIPES)
+    @inactive = Category.category_search(Category::INACTIVE)
     @recipe = Recipe.new
   end
 
