@@ -168,7 +168,7 @@ nutritional table
   border: black 2px solid;
   width: 100%;
   max-width: 450px;
-  min-height: 465px;
+  min-height: 500px;
   padding: 10px 8px;
   background-color: rgba(255, 255, 255, 0.6);
   //float: right;
@@ -268,6 +268,10 @@ nutritional table
   .trans {
     font-style: italic;
   }
+  .no-val {
+    background-color: #f0f0f0;
+    width: 40px;
+  }
 }
 
 /*-----------------------
@@ -276,7 +280,7 @@ Nutritional Analysis
 
 .nut-recommendation {
   background-color: #f8f7f7;
-  min-height: 475px;
+  min-height: 500px;
   max-width: 485px;
   box-shadow: 0px 2px 5px #888888;
   h2 {
@@ -350,6 +354,9 @@ directions
 
 #direction_instruction {
   margin: 26px;
+}
+.dir-btn {
+  float: right;
 }
 
 /*-----------------------

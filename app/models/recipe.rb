@@ -42,7 +42,11 @@ class Recipe < ActiveRecord::Base
   def conversion
     ingredient = ingredients.last
     if ingredient.unit == "oz"
-      ingredient.update!(qty: ingredient.qty * 28.35, unit: "g")  
+      ingredient.update!(qty: ingredient.qty * 28.35, unit: "g")
+    elsif ingredient.unit == "lb"
+      ingredient.update!(qty: ingredient.qty * 453.59, unit: "g")
+    elsif ingredient.unit == "kg"
+      ingredient.update!(qty: ingredient.qty * 1000, unit: "g")
     end
   end
 

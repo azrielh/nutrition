@@ -1,63 +1,63 @@
 <h2>Nutritional Analysis</h2>
 
 <h4>Fat Content</h4>
-<% if ((@recipe.total_fat / 65 * 100) > 25) %>
-  <p class="bad-nut"><%= fat_content_description(@recipe.total_fat) %></p>
-<% elsif ((@recipe.total_fat / 65 * 100) > 15) %>
-  <p class="avg-nut"><%= fat_content_description(@recipe.total_fat) %></p>
+<% if (((@recipe.total_fat / 65 * 100)/(@recipe.servings)) > 25) %>
+  <p class="bad-nut"><%= fat_content_description(@recipe.total_fat/@recipe.servings) %></p>
+<% elsif (((@recipe.total_fat / 65 * 100)/(@recipe.servings)) > 15) %>
+  <p class="avg-nut"><%= fat_content_description(@recipe.total_fat/(@recipe.servings)) %></p>
 <% else %>
-  <p class="good-nut"><%= fat_content_description(@recipe.total_fat) %></p>
+  <p class="good-nut"><%= fat_content_description(@recipe.total_fat/(@recipe.servings)) %></p>
 <% end %>
 <div class="progress">
   <div class="progress-bar progress-bar-striped active" role="progressbar"
-  aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:<%= (@recipe.total_fat / 65 * 100).round(0) %>%">
-  DV <%= (@recipe.total_fat / 65 * 100).round(0) %> %
+  aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:<%= ((@recipe.total_fat / 65 * 100)/(@recipe.servings)).round(0) %>%">
+  DV <%= ((@recipe.total_fat / 65 * 100)/(@recipe.servings)).round(0) %> %
   </div>
 </div>
 
 <h4>Cholesterol Content</h4>
-<% if ((@recipe.cholesterol / 300 * 100) > 25) %>
-  <p class="bad-nut"><%= cholesterol_content_description(@recipe.cholesterol) %></p>
-<% elsif ((@recipe.cholesterol / 300 * 100) > 15) %>
-  <p class="avg-nut"><%= cholesterol_content_description(@recipe.cholesterol) %></p>
+<% if (((@recipe.cholesterol / 300 * 100)/(@recipe.servings)) > 25) %>
+  <p class="bad-nut"><%= cholesterol_content_description(@recipe.cholesterol/(@recipe.servings)) %></p>
+<% elsif (((@recipe.cholesterol / 300 * 100)/(@recipe.servings)) > 15) %>
+  <p class="avg-nut"><%= cholesterol_content_description(@recipe.cholesterol/(@recipe.servings)) %></p>
 <% else %>
-  <p class="good-nut"><%= cholesterol_content_description(@recipe.cholesterol) %></p>
+  <p class="good-nut"><%= cholesterol_content_description(@recipe.cholesterol/(@recipe.servings)) %></p>
 <% end %>
 <div class="progress">
   <div class="progress-bar progress-bar-striped active" role="progressbar"
-  aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:<%= (@recipe.cholesterol / 300 * 100).round(0) %>%">
-  DV <%= (@recipe.cholesterol / 300 * 100).round(0) %> %
+  aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:<%= ((@recipe.cholesterol / 300 * 100)/(@recipe.servings)).round(0) %>%">
+  DV <%= ((@recipe.cholesterol / 300 * 100)/(@recipe.servings)).round(0) %> %
   </div>
 </div>
 
 <h4>Sodium Content</h4>
-<% if ((@recipe.sodium / 2400 * 100) > 25) %>
-  <p class="bad-nut"><%= sodium_content_description(@recipe.sodium) %></p>
-<% elsif ((@recipe.sodium / 2400 * 100) > 15) %>
-  <p class="avg-nut"><%= sodium_content_description(@recipe.sodium) %></p>
+<% if (((@recipe.sodium / 2400 * 100)/(@recipe.servings)) > 25) %>
+  <p class="bad-nut"><%= sodium_content_description(@recipe.sodium/(@recipe.servings)) %></p>
+<% elsif (((@recipe.sodium / 2400 * 100)/(@recipe.servings)) > 15) %>
+  <p class="avg-nut"><%= sodium_content_description(@recipe.sodium/@recipe.servings) %></p>
 <% else %>
-  <p class="good-nut"><%= sodium_content_description(@recipe.sodium) %></p>
+  <p class="good-nut"><%= sodium_content_description(@recipe.sodium/@recipe.servings) %></p>
 <% end %>
 
 <div class="progress">
   <div class="progress-bar progress-bar-striped active" role="progressbar"
-  aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:<%= (@recipe.sodium / 2400 * 100).round(0) %>%">
-  DV <%= (@recipe.sodium / 2400 * 100).round(0) %> %
+  aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:<%= ((@recipe.sodium / 2400 * 100)/@recipe.servings).round(0) %>%">
+  DV <%= ((@recipe.sodium / 2400 * 100)/@recipe.servings).round(0) %> %
   </div>
 </div>
 
 <h4>Total Carbohydrates Content</h4>
-<% if ((@recipe.total_carbs / 300 * 100) > 25) %>
-  <p class="bad-nut"><%= total_carbs_content_description(@recipe.total_carbs) %></p>
-<% elsif ((@recipe.total_carbs / 300 * 100) > 15) %>
-  <p class="avg-nut"><%= total_carbs_content_description(@recipe.total_carbs) %></p>
+<% if (((@recipe.total_carbs / 300 * 100)/@recipe.servings) > 25) %>
+  <p class="bad-nut"><%= total_carbs_content_description(@recipe.total_carbs/@recipe.servings) %></p>
+<% elsif (((@recipe.total_carbs / 300 * 100)/@recipe.servings) > 15) %>
+  <p class="avg-nut"><%= total_carbs_content_description(@recipe.total_carbs/@recipe.servings) %></p>
 <% else %>
-  <p class="good-nut"><%= total_carbs_content_description(@recipe.total_carbs) %></p>
+  <p class="good-nut"><%= total_carbs_content_description(@recipe.total_carbs/@recipe.servings) %></p>
 <% end %>
 
 <div class="progress">
   <div class="progress-bar progress-bar-striped active" role="progressbar"
-  aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:<%= (@recipe.total_carbs / 300 * 100).round(0) %>%">
-  DV <%= (@recipe.total_carbs / 300 * 100).round(0) %> %
+  aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:<%= ((@recipe.total_carbs / 300 * 100)/@recipe.servings).round(0) %>%">
+  DV <%= ((@recipe.total_carbs / 300 * 100)/@recipe.servings).round(0) %> %
   </div>
 </div>
