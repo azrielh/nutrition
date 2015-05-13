@@ -125,6 +125,10 @@ left-bar {
   height: 100%;
 }
 
+.inactive a {
+  color: grey;
+}
+
 
 /*-----------------------
 recipe show page
@@ -345,10 +349,16 @@ directions
   min-height: 300px;
   padding: 20px 10px 10px 10px;
   }
+  li {
+    padding: 10px 0;
+  }
+  i {
+    padding: 10px 0;
+  }
 }
 
 .list-direction {
-  border-bottom: 1px solid rgba(215, 215, 215, 0.8);
+  /* border-bottom: 1px solid rgba(215, 215, 215, 0.8); */
   padding: 10px;
 }
 
