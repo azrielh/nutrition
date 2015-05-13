@@ -7,7 +7,9 @@
   $('#search-items').val("");
   $('.nut-table').fadeOut(300, function(){
     $('.nut-table').html("<%= j render 'recipes/nutritional_table' %>");
+    updateBaseNutritionValues();
     $('.nut-table').fadeIn(300);
   });
   $('.nut-recommendation').html("<%= j render 'recipes/nutrition_recommendation' %>");
+
 <% end %>

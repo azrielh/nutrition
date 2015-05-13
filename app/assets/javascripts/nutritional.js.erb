@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
   var totalFat = $('.total-fat-no').html();
   var totalFatDV = $('.dv-total-fat').html();
   var calories = $('.calories-no').html();
@@ -22,6 +21,32 @@ $(document).ready(function(){
   var vitaminC = $('.vit-c-no').html();
   var calcium = $('.calcium-no').html();
   var iron = $('.iron-no').html();
+
+  window.updateBaseNutritionValues = function() {
+    totalFat = $('.total-fat-no').html();
+    totalFatDV = $('.dv-total-fat').html();
+    calories = $('.calories-no').html();
+    caloriesFat = $('.calories-fat-no').html();
+    saturatedFat = $('.sat-fat-no').html();
+    saturatedFatDV = $('.dv-sat-fat').html();
+    transFat = $('.trans-fat-no').html();
+    cholesterol = $('.cholesterol-no').html();
+    cholesterolDV = $('.dv-cholesterol').html();
+    sodium = $('.sodium-no').html();
+    sodiumDV = $('.dv-sodium').html();
+    totalCarbs = $('.total-carbs-no').html();
+    totalCarbsDV = $('.dv-total-carbs').html();
+    fiber = $('.fiber-no').html();
+    fiberDV = $('.dv-fiber').html();
+    sugar = $('.sugar-no').html();
+    sugar = $('.sugar-no').html();
+    protein = $('.protein-no').html();
+    vitaminA = $('.vit-a-no').html();
+    vitaminC = $('.vit-c-no').html();
+    calcium = $('.calcium-no').html();
+    iron = $('.iron-no').html();
+
+  };
 
   $('.nut-table').on('change', '.no-val', function(){
     var servings = $('.no-val').val();
