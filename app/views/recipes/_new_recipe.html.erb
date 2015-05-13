@@ -1,7 +1,7 @@
 <div class="container">
   <div class="col-md-6">
     <div class="modal-body">
-      <%= simple_form_for Recipe.new, html: {class: "form-horizontal"} do |f| %>
+      <%= simple_form_for (@recipe || Recipe.new), html: {class: "form-horizontal"} do |f| %>
         <%= f.input :title, placeholder: "Add recipe title", class: "form-control title-form" %>
         <%= f.input :description, placeholder: "Write a recipe description", class: "form-control description-form" %>
         <%= f.input :image, class: "form-control" %>

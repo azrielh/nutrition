@@ -7,6 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-["Appetizer", "Entrée", "Dessert", "Inactive"].each do |c|
+[Category::APPETIZER, ENTREE, DESSERT, SIDES, BULK_RECIPES, INACTIVE].each do |c|
   Category.create(name: c)
 end

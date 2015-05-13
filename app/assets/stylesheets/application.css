@@ -13,5 +13,6 @@
  *= require font-awesome
  *= require_tree .
  *= require jquery-ui
+ *= stub active_admin
  *= require_self
  */

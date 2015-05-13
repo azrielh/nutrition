@@ -5,21 +5,17 @@ class RecipesController < ApplicationController
 
 
   def index
-    @recipes = Recipe.all
-    #use first otherwise it will return a record.
-    @appetizers = Category.category_search('Appetizer')
-    @entrees = Category.category_search('Entree')
-    @desserts = Category.category_search('Dessert')
-    @sides = Category.category_search('Sides')
-    @bulk_recipes = Category.category_search('Bulk Recipe')
-    @inactive = Category.category_search('InActive')
+    @appetizers = Category.category_search(Category::APPETIZER)
+    @entrees = Category.category_search(Category::ENTREE)
+    @desserts = Category.category_search(DESSERT)
+    @sides = Category.category_search(SIDES)
+    @bulk_recipes = Category.category_search(BULK_RECIPES)
+    @inactive = Category.category_search(INACTIVE)
     @recipe = Recipe.new
   end
 
   def new
     @recipe = Recipe.new
-    # @recipe.ingredients.build
-    # @recipe.directions.build
   end
 
   def create
@@ -27,7 +23,7 @@ class RecipesController < ApplicationController
     if @recipe.build_recipe(recipe_params)
       redirect_to recipe_path(@recipe)
     else
-      render :index, notice: "Recipe not created, please try again."
+      render :new
     end
   end
 
