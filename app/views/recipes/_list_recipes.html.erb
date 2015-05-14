@@ -1,7 +1,11 @@
 <div class="each-recipe">
   <div class="col-xs-1">
-  <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_recipe_path(r) %>
-  <%= link_to '<i class="fa fa-trash x4"></i>'.html_safe, recipe_path(r), method: :delete, data: { confirm: "are you sure?"} %>
+    <% if can? :edit, r %>
+      <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_recipe_path(r) %>
+    <% end %>
+    <% if can? :destroy, r %>
+      <%= link_to '<i class="fa fa-trash x4"></i>'.html_safe, recipe_path(r), method: :delete, data: { confirm: "are you sure?"} %>
+    <% end %>
   </div>
   <div class="col-xs-11">
   <div class="title">

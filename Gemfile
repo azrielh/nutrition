@@ -49,7 +49,7 @@ gem 'cocoon'
 gem "quiet_assets"
 gem 'kaminari'
 gem 'best_in_place'
-# gem 'cancancan', '~> 1.10'
+gem 'cancancan', '~> 1.10'
 gem 'activeadmin', github: 'activeadmin'
 # gem 'filterrific', '~> 2.0.5'
 
