@@ -35,6 +35,14 @@
       </div><!-- /.container-fluid -->
     </nav>
 
+    <div class="flash-alert">
+      <% if flash[:notice] %>
+        <div class="alert alert-success transparent"><%= flash[:notice] %></div>
+      <% elsif flash[:alert] %>
+        <div class="alert alert-danger"><%= flash[:alert] %></div>
+      <% end %>
+    </div>
+
     <div class="container welcome-message">
       <div class="col-xs-6 col-xs-offset-3">
         <h2>Welcome to Nutrilabel</h2>

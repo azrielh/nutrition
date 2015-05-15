@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   helper_method :user_signed_in?
 
   def access_denied(arg)
-    redirect_to root_path, notice: "Not allowed access"
+    redirect_to root_path, notice: "Admin access not allowed..."
   end
 
 end
