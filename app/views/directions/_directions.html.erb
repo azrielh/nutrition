@@ -4,7 +4,7 @@
       <li><%= direction.instruction %></li>
     </div>
     <div class="col-xs-2">
-      <% if can? :destroy, direction %>
+      <% if can? :destroy, @recipe %>
         <%= link_to '<i class="fa fa-trash x3"></i>'.html_safe, recipe_direction_path(@recipe, direction), method: :delete, remote: true %>
       <% end %>
     </div>

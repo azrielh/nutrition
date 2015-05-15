@@ -17,4 +17,8 @@ class ApplicationController < ActionController::Base
   end
   helper_method :user_signed_in?
 
+  def access_denied(arg)
+    redirect_to root_path, notice: "Not allowed access"
+  end
+
 end

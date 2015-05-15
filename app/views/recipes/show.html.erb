@@ -38,7 +38,7 @@
       <%= render 'nutritional_table' %>
     </div>
   </div>
-
+  <% if can? :edit, @recipe %>
   <div class="container ingredient-directions">
       <div class="col-xs-12">
         <div class="col-xs-4 servings-number">
@@ -90,4 +90,5 @@
       </div>
     </div>
   </div>
+  <% end %>
 </div>

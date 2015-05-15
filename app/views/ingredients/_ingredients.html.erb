@@ -3,7 +3,7 @@
   <td><p><%= ingredient.unit %></p></td>
   <td><p><%= ingredient.name %></p></td>
   <!-- <td><%#= link_to '<i class="fa fa-pencil x4"></i>'.html_safe, edit_recipe_ingredient_path(@recipe, i) %></td> -->
-  <% if can? :destroy, ingredient %>
+  <% if can? :destroy, @recipe %>
     <td><%= link_to '<i class="fa fa-trash x3"></i>'.html_safe, recipe_ingredient_path(@recipe, ingredient), method: :delete, remote: true %></td>
   <% end %>
 <tr>
