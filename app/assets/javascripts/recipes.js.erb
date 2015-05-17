@@ -76,12 +76,9 @@ $(document).ready(function() {
       console.log('error');
       },
       success: function (data) {
-        console.log(data);
         var result = data.hits.map(function (datum) { return datum.fields });
         var item_names = result.map(function(datum) { return datum.item_name });
-        console.log(item_names);
         callback(result);
-
         $( ".search-items" ).autocomplete({
           source: item_names,
         });
