@@ -1,28 +1,9 @@
-== README
+== NUTRILABEL
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Keep your customers informed
+Generate nutritional information for your recipes
 
-Things you may want to cover:
+This app calculates nutritional information for recipes by querying the NutritionIX API.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+-- ToDo
+Change to the USDA API - has more allowable requests.
