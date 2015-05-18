@@ -2,47 +2,37 @@
   <div class="section col-xs-12">
     <h2 class="section-header">Appetizer</h2>
     <div class="header-line"></div>
-    <div class="appetizers">
-      <% @appetizers.each do |r| %>
-        <%= render "list_recipes", r: r %>
-      <% end %>
-    </div>
+    <% @appetizers.each do |r| %>
+      <%= render "list_recipes", r: r %>
+    <% end %>
   </div>
   <div class="section col-xs-12">
     <h2 class="section-header">Entrée</h2>
     <div class="header-line"></div>
-    <div class="entrees">
-      <% @entrees.each do |r| %>
-        <%= render "list_recipes", r: r %>
-      <% end %>
-    </div>
+    <% @entrees.each do |r| %>
+      <%= render "list_recipes", r: r %>
+    <% end %>
   </div>
   <div class="section col-xs-12">
     <h2 class="section-header">Dessert</h2>
     <div class="header-line"></div>
-    <div class="dessert">
-      <% @desserts.each do |r| %>
-        <%= render "list_recipes", r: r %>
-      <% end %>
-    </div>
+    <% @desserts.each do |r| %>
+      <%= render "list_recipes", r: r %>
+    <% end %>
   </div>
   <div class="section col-xs-12">
     <h2 class="section-header">Sides</h2>
     <div class="header-line"></div>
-    <div class="sides">
-      <% @sides.each do |r| %>
-        <%= render "list_recipes", r: r %>
-      <% end %>
-    </div>
+    <% @sides.each do |r| %>
+      <%= render "list_recipes", r: r %>
+    <% end %>
   </div>
   <div class="section col-xs-12">
     <h2 class="section-header">Bulk Recipes</h2>
     <div class="header-line"></div>
-    <div class="bulk_recipes">
-      <% @bulk_recipes.each do |r| %>
-        <%= render "list_recipes", r: r %>
-      <% end %>
-    </div>
+    <% @bulk_recipes.each do |r| %>
+      <%= render "list_recipes", r: r %>
+    <% end %>
   </div>
   <div class="section col-xs-12">
     <h2 class="section-header">Inactive</h2>
