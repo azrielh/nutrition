@@ -23,15 +23,12 @@ class DirectionsController < ApplicationController
       format.html { redirect_to recipe_path(recipe), notice: "Step deleted" }
       format.js { render }
     end
-
   end
-
 
   private
 
   def direction_params
     params.require(:direction).permit(:id, :step, :instruction)
   end
-
 
 end
