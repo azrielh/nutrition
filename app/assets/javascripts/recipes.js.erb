@@ -72,9 +72,17 @@ $(document).ready(function() {
       'https://api.nutritionix.com/v1_1/search/' + encodeURIComponent(input),
       type: 'GET',
       data: r_query,
-      error: function (data) {
-      console.log('error');
+      error: function (request, errorType, errorMessage) {
+      alert('Error: ' + errorType + ' with message: ' + errorMessage);
       },
+      timeout: 5000,
+      // loading graphic, not needed - response is fast...
+      // beforeSend: function(){
+      //  $('.loading-animation').addClass('loading6');
+      // },
+      // complete: function(){
+      //  $('.loading-animation').removeClass('loading6');
+      // },
       success: function (data) {
         var result = data.hits.map(function (datum) { return datum.fields });
         var item_names = result.map(function(datum) { return datum.item_name });
@@ -91,6 +99,10 @@ $(document).ready(function() {
   // for the tooltips
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
+  });
+
+  $('.new-recipe').on('click', '.recipe-save-btn', function(){
+    $('.loading-graphic').addClass('whirly-loader');
   });
 
 
