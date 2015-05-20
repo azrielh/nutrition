@@ -25,6 +25,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
+          <li><%= link_to "Admin", admin_root_path %></li>
           <li> <a class="name">Welcome <%= current_user.full_name %></a></li>
           <li><%= link_to "Sign Out", sessions_path, method: :delete, class: "signout" %></li>
         <% else %>
