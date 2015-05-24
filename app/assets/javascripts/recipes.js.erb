@@ -8,7 +8,6 @@ $(document).ready(function() {
       var value = self.value;
       var $form = $(self).parents('.ingredient');
       var callback = function (data) {
-        //normalising the data??? should refactor to the model - store ingredient data as is
         $form.find('.calories-field').val(data[0].nf_calories/data[0].nf_serving_weight_grams);
         $form.find('.total-fat-field').val(data[0].nf_total_fat/data[0].nf_serving_weight_grams);
         $form.find('.saturated-fat-field').val(data[0].nf_saturated_fat/data[0].nf_serving_weight_grams);
@@ -26,7 +25,6 @@ $(document).ready(function() {
         $form.find('.iron-field').val(data[0].nf_iron_dv/data[0].nf_serving_weight_grams);
         $form.find('.ingredient-id-field').val(data[0].item_id);
         $form.find('.serving-weight-field').val(data[0].nf_serving_weight_grams);
-        // debugger
       };
       search(value, callback);
 
@@ -76,13 +74,6 @@ $(document).ready(function() {
       alert('Error: ' + errorType + ' with message: ' + errorMessage);
       },
       timeout: 5000,
-      // loading graphic, not needed - response is fast...
-      // beforeSend: function(){
-      //  $('.loading-animation').addClass('loading6');
-      // },
-      // complete: function(){
-      //  $('.loading-animation').removeClass('loading6');
-      // },
       success: function (data) {
         var result = data.hits.map(function (datum) { return datum.fields });
         var item_names = result.map(function(datum) { return datum.item_name });
