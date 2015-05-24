@@ -1,9 +1,18 @@
 == NUTRILABEL
 
-Keep your customers informed
-Generate nutritional information for your recipes
-
 This app calculates nutritional information for recipes by querying the NutritionIX API.
+
+Project to calculate the nutritional information for restaurant menu items. 
+Primarily designed for restaurants, the app calculates nutritional information to keep 
+their customers informed.
+
+As a user updates ingredients for a recipe, the app queries an API with an AJAX request. 
+The response in JSON format saves to a PostgreSQL database and dynamically updates and 
+calculates nutritional information for the recipe. All user saved media is stored on 
+AWS servers, and the app is deployed on Heroku. The app is built with a REST architectural 
+style, has a Ruby on Rails backend, and a JavaScript/jQuery front end.
+
 
 -- ToDo
 Change to the USDA API - has more allowable requests.
+NutritionIX - has more data on restaurant foods.
