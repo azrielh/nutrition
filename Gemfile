@@ -40,4 +40,6 @@ group :development, :test do
   gem "awesome_print"
   gem "hirb"
 
+  gem 'rspec-rails'
+
 end
